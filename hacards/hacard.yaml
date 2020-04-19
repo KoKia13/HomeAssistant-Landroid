@@ -1,0 +1,407 @@
+elements:
+  - entity: sensor.landroid_wifi
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      left: 0%
+      opacity: 1
+      top: 0%
+      transform: 'translate(0%, 0%) scale(1, 1)'
+    title: Signal WLAN
+    type: state-icon
+  - entity: sensor.landroid_wifi
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      left: 0%
+      opacity: 1
+      top: 0%
+      transform: 'translate(60%, 15%) scale(1, 1)'
+    title: Signal WLAN
+    type: state-label
+  - entity: sensor.landroid_acs
+    style:
+      left: 45%
+      opacity: 1
+      top: 1%
+      transform: 'translate(0%, 0%) scale(1, 1)'
+    title: ACS
+    type: state-icon
+  - entity: sensor.landroid_active
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      left: 28%
+      opacity: 1
+      top: 10%
+      transform: 'translate(0%, 0%) scale(1, 1)'
+    title: Synchro
+    type: state-icon
+  - entity: sensor.landroid_datetime
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      left: 35%
+      opacity: 1
+      top: 10%
+      transform: 'translate(0%,15%) scale(1, 1)'
+    title: Synchro
+    type: state-label
+  - entity: sensor.landroid_batcharging
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      opacity: 1
+      right: 0%
+      top: 0%
+      transform: 'translate(-130%, 0%) scale(1, 1)'
+    title: Status Batterie
+    type: state-icon
+  - entity: sensor.landroid_batlevel
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      opacity: 1
+      right: 0%
+      top: 0%
+      transform: 'translate(0%, 15%) scale(1, 1)'
+    title: Niveau Batterie
+    type: state-label
+  - entity: sensor.landroid_battemp
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      opacity: 1
+      right: 0%
+      top: 10%
+      transform: 'translate(-130%, 0%) scale(1, 1)'
+    title: Température Batterie
+    type: state-icon
+  - entity: sensor.landroid_battemp
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      opacity: 1
+      right: 0%
+      top: 10%
+      transform: 'translate(0%, 15%) scale(1, 1)'
+    title: Température Batterie
+    type: state-label
+  - entity: sensor.landroid_batchargecycles
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      opacity: 1
+      right: 0%
+      top: 20%
+      transform: 'translate(-130%, 0%) scale(1, 1)'
+    title: Cycles Batterie
+    type: state-icon
+  - entity: sensor.landroid_batchargecycles
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      opacity: 1
+      right: 0%
+      top: 20%
+      transform: 'translate(0%, 15%) scale(1, 1)'
+    title: Cycles Batterie
+    type: state-label
+  - entity: sensor.landroid_batvoltage
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      opacity: 1
+      right: 0%
+      top: 30%
+      transform: 'translate(-130%, 0%) scale(1, 1)'
+    title: Tension Batterie
+    type: state-icon
+  - entity: sensor.landroid_batvoltage
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      opacity: 1
+      right: 0%
+      top: 30%
+      transform: 'translate(0%, 15%) scale(1, 1)'
+    title: Tension Batterie
+    type: state-label
+  - entity: sensor.landroid_statusdesc
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      left: 0%
+      opacity: 1
+      text-align: left
+      top: 0%
+      transform: 'translate(20%, 100%) scale(1.5, 1.5)'
+    title: Status
+    type: state-label
+  - entity: sensor.landroid_errordesc
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      left: 0%
+      opacity: 1
+      text-align: left
+      top: 0%
+      transform: 'translate(20%, 180%) scale(1.5, 1.5)'
+    title: Erreur
+    type: state-label
+  - entity: sensor.landroid_totaldist
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      left: 42%
+      opacity: 1
+      top: 30%
+      transform: 'translate(-100%, 0%) scale(1, 1)'
+    title: Distance Parcourue
+    type: state-icon
+  - entity: sensor.landroid_totaldist
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      left: 42%
+      opacity: 1
+      top: 30%
+      transform: 'translate(0%, -10%) scale(1, 1)'
+    title: Distance Parcourue
+    type: state-label
+  - entity: sensor.landroid_totaldist_human
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-style: italic
+      left: 42%
+      opacity: 1
+      top: 32%
+      transform: 'translate(-12%, 0%) scale(0.7, 0.7)'
+    title: Distance Parcourue
+    type: state-label
+  - entity: sensor.landroid_totaltime
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      left: 42%
+      opacity: 1
+      top: 40%
+      transform: 'translate(-100%, 0%) scale(1, 1)'
+    title: Durée de Travail Totale
+    type: state-icon
+  - entity: sensor.landroid_totaltime
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      left: 42%
+      opacity: 1
+      top: 40%
+      transform: 'translate(0%, -10%) scale(1, 1)'
+    title: Durée de Travail Totale
+    type: state-label
+  - entity: sensor.landroid_totaltime_human
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-style: italic
+      left: 42%
+      opacity: 1
+      top: 42%
+      transform: 'translate(-12%, 0%) scale(0.7, 0.7)'
+    title: Durée de Travail Totale
+    type: state-label
+  - entity: sensor.landroid_bladetime
+    icon: 'mdi:fan'
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      left: 42%
+      opacity: 1
+      top: 50%
+      transform: 'translate(-100%, 0%) scale(1, 1)'
+    title: Durée Utilisation Lames
+    type: state-icon
+  - entity: sensor.landroid_bladetime
+    icon: 'mdi:paper-cut-vertical'
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      left: 42%
+      opacity: 1
+      top: 50%
+      transform: 'translate(0%, 15%) scale(1, 1)'
+    title: Durée Utilisation Lames
+    type: state-label
+  - entity: sensor.landroid_bladetime_human
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-style: italic
+      left: 42%
+      opacity: 1
+      top: 54%
+      transform: 'translate(-12%, 0%) scale(0.7, 0.7)'
+    title: Durée de Travail Totale
+    type: state-label
+  - entity: sensor.landroid_speed
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      left: 42%
+      opacity: 1
+      top: 60%
+      transform: 'translate(-100%, 0%) scale(1, 1)'
+    title: Average Speed
+    type: state-icon
+  - entity: sensor.landroid_speed
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      left: 42%
+      opacity: 1
+      top: 60%
+      transform: 'translate(0%, 15%) scale(1, 1)'
+    title: Average Speed
+    type: state-label
+  - entity: sensor.landroid_pitch
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      opacity: 1
+      right: 0%
+      top: 40%
+      transform: 'translate(-130%, 0%) scale(1, 1)'
+    title: Tangage
+    type: state-icon
+  - entity: sensor.landroid_pitch
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      opacity: 1
+      right: 0%
+      top: 40%
+      transform: 'translate(0%, 15%) scale(1, 1)'
+    title: Tangage
+    type: state-label
+  - entity: sensor.landroid_roll
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      opacity: 1
+      right: 0%
+      top: 50%
+      transform: 'translate(0%, 15%) scale(1, 1)'
+    title: Roulis
+    type: state-label
+  - entity: sensor.landroid_roll
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      opacity: 1
+      right: 0%
+      top: 50%
+      transform: 'translate(-130%, 0%) scale(1, 1)'
+    title: Roulis
+    type: state-icon
+  - entity: sensor.landroid_yaw
+    style:
+      color: 'rgb(3, 169, 244)'
+      font-weight: bold
+      opacity: 1
+      right: 0%
+      top: 60%
+      transform: 'translate(0%, 15%) scale(1, 1)'
+    title: Embardée
+    type: state-label
+  - entity: sensor.landroid_yaw
+    style:
+      '--iron-icon-fill-color': 'rgb(3, 169, 244)'
+      opacity: 1
+      right: 0%
+      top: 60%
+      transform: 'translate(-130%, 0%) scale(1, 1)'
+    title: Embardée
+    type: state-icon
+  - entity: input_boolean.landroid_sched_settings
+    image: /local/mower/timer-off.png
+    state_filter:
+      'off': brightness(80%) saturate(1)
+      'on': brightness(100%) saturate(1)
+    state_image:
+      'on': /local/mower/timer.png
+    style:
+      bottom: 4%
+      left: 45%
+      transform: 'translate(-280%, 25%) scale(0.7, 0.7)'
+    tap_action:
+      action: toggle
+    title: Planning
+    type: image
+  - entity: input_boolean.landroid_raindelay_settings
+    image: /local/mower/rainy-off.png
+    state_filter:
+      'off': brightness(80%) saturate(1)
+      'on': brightness(100%) saturate(1)
+    state_image:
+      'on': /local/mower/rainy.png
+    style:
+      bottom: 4%
+      left: 45%
+      transform: 'translate(-140%, 25%) scale(0.7, 0.7)'
+    tap_action:
+      action: toggle
+    title: Délai aprés Pluie
+    type: image
+  - entity: input_boolean.landroid_status_enabled
+    state_image:
+      'off': /local/icons/power-off.png
+      'on': /local/icons/power-on.png
+    style:
+      bottom: 15%
+      left: 45%
+      transform: 'translate(0%, 0%) scale(1.6,1.6)'
+    tap_action:
+      action: call-service
+      service: script.landroid_enableordisable
+    title: Landroid On/Off
+    type: image
+  - icon: 'mdi:play'
+    style:
+      '--iron-icon-fill-color': 'rgb(250, 250, 250)'
+      bottom: 4%
+      left: 45%
+      transform: 'translate(0%, 0%) scale(1.6, 1.6)'
+    tap_action:
+      action: call-service
+      service: script.landroid_start
+    title: Début Tonte
+    type: icon
+  - icon: 'mdi:home'
+    style:
+      '--iron-icon-fill-color': 'rgb(250, 250, 250)'
+      bottom: 4%
+      left: 45%
+      transform: 'translate(260%, 0%) scale(1.6, 1.6)'
+    tap_action:
+      action: call-service
+      service: script.landroid_stop
+    title: Arrêt & Retour Base
+    type: icon
+  - entity: input_boolean.landroid_info_toggle
+    image: /local/mower/info-off.png
+    state_filter:
+      'off': brightness(80%) saturate(1)
+      'on': brightness(100%) saturate(1)
+    state_image:
+      'on': /local/mower/information.png
+    style:
+      bottom: 4%
+      left: 45%
+      transform: 'translate(240%, 25%) scale(0.7, 0.7)'
+    tap_action:
+      action: toggle
+    title: Infos
+    type: image
+  - entity: input_boolean.landroid_automations_toggle
+    image: /local/mower/toggle-switch-off.png
+    state_filter:
+      'off': brightness(80%) saturate(1)
+      'on': brightness(100%) saturate(1)
+    state_image:
+      'on': /local/mower/toggle-switch-on.png
+    style:
+      bottom: 4%
+      left: 45%
+      transform: 'translate(350%, 25%) scale(0.8, 0.8)'
+    tap_action:
+      action: toggle
+    title: Automations
+    type: image
+image: /local/mower/landroid_flower.webp
+type: picture-elements
