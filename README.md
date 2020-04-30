@@ -3,7 +3,7 @@ Stuff to monitor my Worx Landroid L WR155E in Home Assistant
 
 ![](./.res/home.jpeg)  ![](./.res/card.jpeg)
 
-![](./.res/tab.jpeg)
+![](./.res/tab.png)
 ![](./.res/tab2.jpeg)
 
 
