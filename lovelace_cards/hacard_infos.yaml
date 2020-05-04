@@ -1,0 +1,17 @@
+card:
+  entities:
+    - entity: sensor.landroid_datetime
+    - entity: sensor.landroid_ip
+    - entity: sensor.landroid_firmware
+    - entity: sensor.landroid_sn
+    - entity: sensor.landroid_mac
+    - entity: sensor.landroid_lang
+    - entity: sensor.landroid_acs_state
+    - entity: sensor.landroid_acs_enabled
+  show_header_toggle: false
+  title: Infos
+  type: entities
+conditions:
+  - entity: input_boolean.landroid_info_toggle
+    state: 'on'
+type: conditional
