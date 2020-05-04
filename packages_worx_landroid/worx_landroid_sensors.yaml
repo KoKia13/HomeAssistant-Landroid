@@ -27,7 +27,7 @@
     value_template: '{{ value_json.value }}'
 
 
-# Infos appareil ##########
+# Device info ##########
   - platform: template
     sensors:
       landroid_lang:
@@ -120,7 +120,7 @@
           {%- else -%}unknown
           {%- endif %}
 
-# Paramètres ##########
+# Parameters ##########
       landroid_raindelay:
         value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["rd"] }}'
       landroid_timeext:
@@ -140,7 +140,7 @@
       landroid_last_update:
         value_template: "{{ relative_time(states.sensor.landroid_datetime.last_updated) }}"
         
-# Statistiques Human ##########
+# Statistics Human ##########
       landroid_totaldist_human:
         value_template: "{% set dist = (states.sensor.landroid_totaldist.state | int) | int %}{% set meters = ((dist % 1000)) | int %}{% set kms = ((dist) / 1000) | int %}{{ kms }}km. {{ meters }}m."
       landroid_totaltime_human:
@@ -171,7 +171,7 @@
       landroid_bladetime:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["st"]["b"] }}'
 
-# Batterie ##########
+# Battery ##########
       landroid_batchargecycles:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["bt"]["nr"] }}'
       landroid_batcharging:
@@ -257,7 +257,7 @@
       landroid_acs_enabled:
         value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["modules"]["US"]["enabled"] }}'
 
-# Calendrier ##########
+# Schedule ##########
       landroid_sched1_starthour:
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][1][0][0] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][1][0][1] }}"
       landroid_sched1_startminute:
@@ -324,7 +324,7 @@
 # Templates ##########
   - platform: template
     sensors:
-# Actual scheduler
+# Actual Schedule
       landroid_1_actual:
         value_template: "{{ states('sensor.landroid_sched1_starthour') }}:{{ states('sensor.landroid_sched1_startminute') }}, {{ states('sensor.landroid_sched1_durationminutes') }} Minutes{% if states('sensor.landroid_sched1_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
       landroid_2_actual:
