@@ -386,6 +386,10 @@
         icon_template: "mdi:scissors-cutting"
         friendly_name: "Schedule monday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][1][2] }}"
+      landroid_sched1_end:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule monday end time"
+        value_template: "{{ '%0.02d:%0.02d' | format(((states('sensor.landroid_sched1_durationminutes') | int + states('sensor.landroid_sched1_startminute') | int) / 60) | int + (states('sensor.landroid_sched1_starthour') | int),((states('sensor.landroid_sched1_durationminutes') | int) + (states('sensor.landroid_sched1_startminute') | int)) % 60)}}"
 
       landroid_sched2_start:
         icon_template: "mdi:calendar-clock"
@@ -407,6 +411,10 @@
         icon_template: "mdi:scissors-cutting"
         friendly_name: "Schedule tuesday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][2][2] }}"
+      landroid_sched2_end:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule tuesday end time"
+        value_template: "{{ '%0.02d:%0.02d' | format(((states('sensor.landroid_sched2_durationminutes') | int + states('sensor.landroid_sched2_startminute') | int) / 60) | int + (states('sensor.landroid_sched2_starthour') | int),((states('sensor.landroid_sched2_durationminutes') | int) + (states('sensor.landroid_sched2_startminute') | int)) % 60)}}"
 
       landroid_sched3_start:
         icon_template: "mdi:calendar-clock"
@@ -428,6 +436,10 @@
         icon_template: "mdi:scissors-cutting"
         friendly_name: "Schedule wednesday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][3][2] }}"
+      landroid_sched3_end:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule wednesday end time"
+        value_template: "{{ '%0.02d:%0.02d' | format(((states('sensor.landroid_sched3_durationminutes') | int + states('sensor.landroid_sched3_startminute') | int) / 60) | int + (states('sensor.landroid_sched3_starthour') | int),((states('sensor.landroid_sched3_durationminutes') | int) + (states('sensor.landroid_sched3_startminute') | int)) % 60)}}"
 
       landroid_sched4_start:
         icon_template: "mdi:calendar-clock"
@@ -449,6 +461,10 @@
         icon_template: "mdi:scissors-cutting"
         friendly_name: "Schedule thursday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][4][2] }}"
+      landroid_sched4_end:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule thursday end time"
+        value_template: "{{ '%0.02d:%0.02d' | format(((states('sensor.landroid_sched4_durationminutes') | int + states('sensor.landroid_sched4_startminute') | int) / 60) | int + (states('sensor.landroid_sched4_starthour') | int),((states('sensor.landroid_sched4_durationminutes') | int) + (states('sensor.landroid_sched4_startminute') | int)) % 60)}}"
         
       landroid_sched5_start:
         icon_template: "mdi:calendar-clock"
@@ -470,6 +486,10 @@
         icon_template: "mdi:scissors-cutting"
         friendly_name: "Schedule friday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][5][2] }}"
+      landroid_sched5_end:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule friday end time"
+        value_template: "{{ '%0.02d:%0.02d' | format(((states('sensor.landroid_sched5_durationminutes') | int + states('sensor.landroid_sched5_startminute') | int) / 60) | int + (states('sensor.landroid_sched5_starthour') | int),((states('sensor.landroid_sched5_durationminutes') | int) + (states('sensor.landroid_sched5_startminute') | int)) % 60)}}"
         
       landroid_sched6_start:
         icon_template: "mdi:calendar-clock"
@@ -491,6 +511,10 @@
         icon_template: "mdi:scissors-cutting"
         friendly_name: "Schedule saturday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][6][2] }}"
+      landroid_sched6_end:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule saturday end time"
+        value_template: "{{ '%0.02d:%0.02d' | format(((states('sensor.landroid_sched6_durationminutes') | int + states('sensor.landroid_sched6_startminute') | int) / 60) | int + (states('sensor.landroid_sched6_starthour') | int),((states('sensor.landroid_sched6_durationminutes') | int) + (states('sensor.landroid_sched6_startminute') | int)) % 60)}}"
         
       landroid_sched0_start:
         icon_template: "mdi:calendar-clock"
@@ -512,6 +536,10 @@
         icon_template: "mdi:scissors-cutting"
         friendly_name: "Schedule sunday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][0][2] }}"
+      landroid_sched0_end:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule sunday end time"
+        value_template: "{{ '%0.02d:%0.02d' | format(((states('sensor.landroid_sched0_durationminutes') | int + states('sensor.landroid_sched0_startminute') | int) / 60) | int + (states('sensor.landroid_sched0_starthour') | int),((states('sensor.landroid_sched0_durationminutes') | int) + (states('sensor.landroid_sched0_startminute') | int)) % 60)}}"
 
       landroid_sched_today_start:
         icon_template: "mdi:calendar-clock"
@@ -533,6 +561,11 @@
         icon_template: "mdi:scissors-cutting"
         friendly_name: "Schedule today cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][(now().strftime('%w') | int)][2] }}"
+      landroid_sched_today_end:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule today end time"
+        value_template: "{{ '%0.02d:%0.02d' | format(((states('sensor.landroid_sched_today_durationminutes') | int + states('sensor.landroid_sched_today_startminute') | int) / 60) | int + (states('sensor.landroid_sched_today_starthour') | int),((states('sensor.landroid_sched_today_durationminutes') | int) + (states('sensor.landroid_sched_today_startminute') | int)) % 60)}}"
+
 # Templates ##########
   - platform: template
     sensors:
