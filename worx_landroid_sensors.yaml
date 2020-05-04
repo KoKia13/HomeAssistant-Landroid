@@ -366,6 +366,10 @@
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["modules"]["US"]["stat"] }}'
 
 # Schedule ##########
+      landroid_sched1_start:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule monday start time"
+        value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][1][0] }}"
       landroid_sched1_starthour:
         icon_template: "mdi:calendar-clock"
         friendly_name: "Schedule monday start hour"
@@ -383,6 +387,10 @@
         friendly_name: "Schedule monday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][1][2] }}"
 
+      landroid_sched2_start:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule tuesday start time"
+        value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][2][0] }}"
       landroid_sched2_starthour:
         icon_template: "mdi:calendar-clock"
         friendly_name: "Schedule tuesday start hour"
@@ -400,6 +408,10 @@
         friendly_name: "Schedule tuesday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][2][2] }}"
 
+      landroid_sched3_start:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule wednesday start time"
+        value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][3][0] }}"
       landroid_sched3_starthour:
         icon_template: "mdi:calendar-clock"
         friendly_name: "Schedule wednesday start hour"
@@ -417,6 +429,10 @@
         friendly_name: "Schedule wednesday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][3][2] }}"
 
+      landroid_sched4_start:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule thursday start time"
+        value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][4][0] }}"
       landroid_sched4_starthour:
         icon_template: "mdi:calendar-clock"
         friendly_name: "Schedule thursday start hour"
@@ -434,6 +450,10 @@
         friendly_name: "Schedule thursday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][4][2] }}"
         
+      landroid_sched5_start:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule friday start time"
+        value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][5][0] }}"
       landroid_sched5_starthour:
         icon_template: "mdi:calendar-clock"
         friendly_name: "Schedule friday start hour"
@@ -451,6 +471,10 @@
         friendly_name: "Schedule friday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][5][2] }}"
         
+      landroid_sched6_start:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule saturday start time"
+        value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][6][0] }}"
       landroid_sched6_starthour:
         icon_template: "mdi:calendar-clock"
         friendly_name: "Schedule saturday start hour"
@@ -468,6 +492,10 @@
         friendly_name: "Schedule saturday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][6][2] }}"
         
+      landroid_sched0_start:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule sunday start time"
+        value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][0][0] }}"
       landroid_sched0_starthour:
         icon_template: "mdi:calendar-clock"
         friendly_name: "Schedule sunday start hour"
@@ -485,6 +513,26 @@
         friendly_name: "Schedule sunday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][0][2] }}"
 
+      landroid_sched_today_start:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule today start time"
+        value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][(now().strftime('%w') | int)][0] }}"
+      landroid_sched_today_starthour:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule today start hour"
+        value_template: "{{states.sensor.worx_sensors.attributes['cfg']['sc']['d'][(now().strftime('%w') | int)][0][0]}}{{states.sensor.worx_sensors.attributes['cfg']['sc']['d'][(now().strftime('%w') | int)][0][1]}}"
+      landroid_sched_today_startminute:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule today start minute"
+        value_template: "{{states.sensor.worx_sensors.attributes['cfg']['sc']['d'][(now().strftime('%w') | int)][0][3]}}{{states.sensor.worx_sensors.attributes['cfg']['sc']['d'][(now().strftime('%w') | int)][0][4]}}"
+      landroid_sched_today_durationminutes:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule today duration"
+        value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][(now().strftime('%w') | int)][1] }}"
+      landroid_sched_today_cutedge:
+        icon_template: "mdi:scissors-cutting"
+        friendly_name: "Schedule today cut edge"
+        value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][(now().strftime('%w') | int)][2] }}"
 # Templates ##########
   - platform: template
     sensors:
@@ -517,4 +565,7 @@
         friendly_name: "Actual schedule sunday"
         icon_template: "mdi:calendar-clock"
         value_template: "{{ states('sensor.landroid_sched0_starthour') }}:{{ states('sensor.landroid_sched0_startminute') }}, {{ states('sensor.landroid_sched0_durationminutes') }} Minutes{% if states('sensor.landroid_sched0_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
-
+      landroid_today_actual:
+        friendly_name: "Actual schedule today"
+        icon_template: "mdi:calendar-clock"
+        value_template: "{{ states('sensor.landroid_sched_today_starthour') }}:{{ states('sensor.landroid_sched_today_startminute') }}, {{ states('sensor.landroid_sched_today_durationminutes') }} Minutes{% if states('sensor.landroid_sched_today_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
