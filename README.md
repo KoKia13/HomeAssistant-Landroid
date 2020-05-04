@@ -29,6 +29,8 @@ Stuff to monitor my Worx Landroid L WR155E in Home Assistant
 - *Find how to use the Worx credentials from the secret file in the sensor.worx_sensors "payload:"*
 - *To try again to push actions to the mower: start, home... and to confirm my automation: Rain detected -> Back to Home -> RainDelay  
 (I was banned since one month by AWS, created a new Worx account, seems ok now).*
+- *To clean and share worx_landroid core package "packages/worx_landroid.yaml".*
+- *To clean and share worx_landroid automations "packages_worx_landroid/worx_landroid_automations/\*.yaml".*
 - *Improvements...*
 
 *Helped by:*
