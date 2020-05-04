@@ -274,7 +274,6 @@
         value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["modules"]["US"]["enabled"] }}'
 
 # Schedule ##########
-
       landroid_sched_today_start:
          value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][(now().strftime('%w') | int)][0] }}"
       landroid_sched_today_starthour:
@@ -383,18 +382,18 @@
   - platform: template
     sensors:
 # Actual Schedule
-      landroid_1_actual:
+      landroid_sched1_actual:
         value_template: "{{ states('sensor.landroid_sched1_starthour') }}:{{ states('sensor.landroid_sched1_startminute') }}, {{ states('sensor.landroid_sched1_durationminutes') }} Minutes{% if states('sensor.landroid_sched1_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
-      landroid_2_actual:
+      landroid_sched2_actual:
         value_template: "{{ states('sensor.landroid_sched2_starthour') }}:{{ states('sensor.landroid_sched2_startminute') }}, {{ states('sensor.landroid_sched2_durationminutes') }} Minutes{% if states('sensor.landroid_sched2_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
-      landroid_3_actual:
+      landroid_sched3_actual:
         value_template: "{{ states('sensor.landroid_sched3_starthour') }}:{{ states('sensor.landroid_sched3_startminute') }}, {{ states('sensor.landroid_sched3_durationminutes') }} Minutes{% if states('sensor.landroid_sched3_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
-      landroid_4_actual:
+      landroid_sched4_actual:
         value_template: "{{ states('sensor.landroid_sched4_starthour') }}:{{ states('sensor.landroid_sched4_startminute') }}, {{ states('sensor.landroid_sched4_durationminutes') }} Minutes{% if states('sensor.landroid_sched4_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
-      landroid_5_actual:
+      landroid_sched5_actual:
         value_template: "{{ states('sensor.landroid_sched5_starthour') }}:{{ states('sensor.landroid_sched5_startminute') }}, {{ states('sensor.landroid_sched5_durationminutes') }} Minutes{% if states('sensor.landroid_sched5_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
-      landroid_6_actual:
+      landroid_sched6_actual:
         value_template: "{{ states('sensor.landroid_sched6_starthour') }}:{{ states('sensor.landroid_sched6_startminute') }}, {{ states('sensor.landroid_sched6_durationminutes') }} Minutes{% if states('sensor.landroid_sched6_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
-      landroid_0_actual:
+      landroid_sched0_actual:
         value_template: "{{ states('sensor.landroid_sched0_starthour') }}:{{ states('sensor.landroid_sched0_startminute') }}, {{ states('sensor.landroid_sched0_durationminutes') }} Minutes{% if states('sensor.landroid_sched0_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
 
