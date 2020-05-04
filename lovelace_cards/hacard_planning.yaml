@@ -1,0 +1,124 @@
+card:
+  cards:
+    - entities:
+        - sensor.landroid_timeext
+        - input_number.landroid_timeext
+        - script.landroid_set_timeext
+      type: entities
+    - card:
+        entities:
+          - entity: sensor.landroid_sched1_actual
+          - entity: input_datetime.landroid_sched1_time
+          - entity: input_number.landroid_sched1_duration
+          - entity: input_boolean.landroid_sched1_cuttoedge
+        type: entities
+      conditions:
+        - entity: input_boolean.landroid_sched1
+          state: 'on'
+      type: conditional
+    - entities:
+        - input_boolean.landroid_sched1
+        - script.landroid_set_sched
+      show_header_toggle: false
+      type: entities
+    - card:
+        entities:
+          - entity: sensor.landroid_sched2_actual
+          - entity: input_datetime.landroid_sched2_time
+          - entity: input_number.landroid_sched2_duration
+          - entity: input_boolean.landroid_sched2_cuttoedge
+        type: entities
+      conditions:
+        - entity: input_boolean.landroid_sched2
+          state: 'on'
+      type: conditional
+    - entities:
+        - input_boolean.landroid_sched2
+        - script.landroid_set_sched2
+      show_header_toggle: false
+      type: entities
+    - card:
+        entities:
+          - entity: sensor.landroid_sched3_actual
+          - entity: input_datetime.landroid_3_time
+          - entity: input_number.landroid_3_duration
+          - entity: input_boolean.landroid_3_cuttoedge
+        type: entities
+      conditions:
+        - entity: input_boolean.landroid_sched3
+          state: 'on'
+      type: conditional
+    - entities:
+        - input_boolean.landroid_sched3
+        - script.landroid_set_sched3
+      show_header_toggle: false
+      type: entities
+    - card:
+        entities:
+          - entity: sensor.landroid_sched4_actual
+          - entity: input_datetime.landroid_4_time
+          - entity: input_number.landroid_4_duration
+          - entity: input_boolean.landroid_4_cuttoedge
+        type: entities
+      conditions:
+        - entity: input_boolean.landroid_sched4
+          state: 'on'
+      type: conditional
+    - entities:
+        - input_boolean.landroid_sched4
+        - script.landroid_set_sched4
+      show_header_toggle: false
+      type: entities
+    - card:
+        entities:
+          - entity: sensor.landroid_sched5_actual
+          - entity: input_datetime.landroid_sched5_time
+          - entity: input_number.landroid_sched5_duration
+          - entity: input_boolean.landroid_sched5_cuttoedge
+        type: entities
+      conditions:
+        - entity: input_boolean.landroid_sched5
+          state: 'on'
+      type: conditional
+    - entities:
+        - input_boolean.landroid_sched5
+        - script.landroid_set_sched5
+      show_header_toggle: false
+      type: entities
+    - card:
+        entities:
+          - entity: sensor.landroid_sched6_actual
+          - entity: input_datetime.landroid_sched6_time
+          - entity: input_number.landroid_sched6_duration
+          - entity: input_boolean.landroid_sched6_cuttoedge
+        type: entities
+      conditions:
+        - entity: input_boolean.landroid_sched6
+          state: 'on'
+      type: conditional
+    - entities:
+        - input_boolean.landroid_sched6
+        - script.landroid_set_sched6
+      show_header_toggle: false
+      type: entities
+    - card:
+        entities:
+          - entity: sensor.landroid_sched0_actual
+          - entity: input_datetime.landroid_sched0_time
+          - entity: input_number.landroid_sched0_duration
+          - entity: input_boolean.landroid_sched0_cuttoedge
+        type: entities
+      conditions:
+        - entity: input_boolean.landroid_sched0
+          state: 'on'
+      type: conditional
+    - entities:
+        - input_boolean.landroid_sched0
+        - script.landroid_set_sched0
+      show_header_toggle: false
+      type: entities
+  type: vertical-stack
+conditions:
+  - entity: input_boolean.landroid_sched_settings
+    state: 'on'
+type: conditional
