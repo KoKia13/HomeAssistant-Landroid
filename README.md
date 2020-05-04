@@ -15,8 +15,8 @@ Stuff to monitor my Worx Landroid L WR155E in Home Assistant
 - Check your conf, restart the server.
 - Copy the content of *{{ states.sensor.worx_token.attributes.access_token }}* to your secret.yaml (with "Bearer " at the beginning): worxtoken: "Bearer eyJ0eXAiOiJK...................."
 - Check your conf, restart the server.
-- UI Big card: Create a new card in your UI, paste the content of hacards/hacard.yaml.
-- UI Small card: Create a new card in your UI, paste the content of hacards/hacard_home.yaml.
+- UI Big card: Create a new card in your UI, paste the content of lovelace_cards/hacard.yaml.
+- UI Small card: Create a new card in your UI, paste the content of lovelace_cards/hacard_home.yaml.
 - Create the subfolder "mower" in your www folder, copy files from www/mower to your www/mower.
 - Adapt: remove ACS, etc.
  
