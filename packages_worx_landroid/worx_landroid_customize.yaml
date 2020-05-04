@@ -18,24 +18,24 @@
 
 # Landroid Sensors ##########
     sensor.worx_sensors:
-      friendly_name: Landroid Worx Sensors
+      friendly_name: "Worx Sensors"
       icon: mdi:format-list-numbered
 
 # Infos appareil ##########
     sensor.landroid_ip:
-      friendly_name: Landroid IP
-      icon: mdi:ip-network
+      friendly_name: "IP Address"
+      icon: "mdi:ip-network"
     sensor.landroid_lang:
       icon: "mdi:translate"
-      friendly_name: Landroid Lang
+      friendly_name: "Language"
     sensor.landroid_sn:
-      friendly_name: "Landroid SN"
+      friendly_name: "Serial Number"
       icon: "mdi:barcode"
     sensor.landroid_mac:
-      friendly_name: "Landroid MAC"
+      friendly_name: "MAC address"
       icon: "mdi:numeric"
     sensor.landroid_firmware:
-      friendly_name: "Landroid Firmware"
+      friendly_name: "Firmware"
       icon: "mdi:information-variant" 
     sensor.landroid_acs_state: 
       friendly_name: "Anti Collision System State"
@@ -61,22 +61,22 @@
 
 # Status ##########
     sensor.landroid_wifi:
-      friendly_name: "Landroid Wifi Quality"
+      friendly_name: "Wifi Quality"
       unit_of_measurement: 'dB'
 
     sensor.landroid_datetime:
-      friendly_name: "Landroid Dernière Mise à Jour"
+      friendly_name: "Last Update"
       icon: "mdi:update"
       device_class: "timestamp"
 
     sensor.landroid_active:
-      friendly_name: "Landroid Status"
+      friendly_name: "Active"
 
     sensor.landroid_statuscode:
       icon: "mdi:clipboard-list"
-      friendly_name: "Landroid Status Code"
+      friendly_name: "Status Code"
     sensor.landroid_statusdesc:
-      friendly_name: "Landroid Status"
+      friendly_name: "Status"
       icon_color: >-
         # if (state === 'Home') return 'rgb(70, 190, 244)';
         if (state === 'Home') return 'black';
@@ -84,168 +84,317 @@
         else if (state === 'Going Home') return 'white';
         else return 'red';
     sensor.landroid_errorcode:
-      friendly_name: "Landroid Error Code"
+      friendly_name: "Error Code"
       icon: mdi:bug
     sensor.landroid_errordesc:
-      friendly_name: "Landroid Erreur"
+      friendly_name: "Error Description"
       icon: mdi:bug-check
       templates:
         icon_color: >-
           if (state === 'No Error') return 'green';
           return 'red';
 
-# Paramètres ##########
+# Parameters ##########
     sensor.landroid_raindelay:
-      friendly_name: "Landroid RainDelay"
+      friendly_name: "Rain Delay"
       icon: "mdi:weather-rainy"
       unit_of_measurement: "Min."
     sensor.landroid_timeext:
-      friendly_name: "Landroid TimeExt"
+      friendly_name: "Time Extension"
       icon: "mdi:clock-start"
       unit_of_measurement: "%"
 
 # Calculs  ##########
     sensor.landroid_dist_yesterday:
-      friendly_name: "Landroid Dist. Yesterday"
+      friendly_name: "Dist. Yesterday"
       unit_of_measurement: 'm.'
-      icon: 'mdi:calendar-today'
+      icon: "mdi:calendar-today"
     sensor.landroid_dist_today:
-      friendly_name: "Landroid Dist. Today"
+      friendly_name: "Dist. Today"
       unit_of_measurement: 'm.'
       icon: "mdi:map-marker-distance"
     sensor.landroid_time_yesterday:
-      friendly_name: "Landroid Worktime Yesterday"
+      friendly_name: "Worktime Yesterday"
       unit_of_measurement: 'Min.'
-      icon: 'mdi:calendar-today'
+      icon: "mdi:calendar-today"
     sensor.landroid_time_today:
-      friendly_name: "Landroid Worktime Today"
+      friendly_name: "Worktime Today"
       unit_of_measurement: 'Min.'
       icon: "mdi:bus-clock"
     sensor.landroid_last_update:
-      friendly_name: "Landroid Last Update"
+      friendly_name: "Last Update"
       icon: "mdi:calendar-clock"
 
 # Statistiques Human ##########
     sensor.landroid_totaldist_human:
-      friendly_name: "Landroid Distance"
+      friendly_name: "Distance"
       icon: "mdi:map-marker-distance"
     sensor.landroid_totaltime_human:
-      friendly_name: "Landroid Worktime"
+      friendly_name: "Worktime"
       icon: "mdi:bus-clock"
     sensor.landroid_bladetime_human:
-      friendly_name: "Landroid BladeTime"
+      friendly_name: "BladeTime"
     sensor.landroid_speed:
-      friendly_name: "Landroid Average Speed"
+      friendly_name: "Average Speed"
       unit_of_measurement: 'km/h'
       icon: "mdi:gauge"
     sensor.landroid_speed_last:
-      friendly_name: "Landroid Last Speed"
+      friendly_name: "Last Speed"
       unit_of_measurement: 'km/h'
       icon: "mdi:gauge"
     sensor.landroid_speed_today:
-      friendly_name: "Landroid Average Speed Today"
+      friendly_name: "Average Speed Today"
       unit_of_measurement: 'km/h'
       icon: "mdi:gauge"
     sensor.landroid_speed_yesterday:
-      friendly_name: "Landroid Average Speed Yesterday"
+      friendly_name: "Average Speed Yesterday"
       unit_of_measurement: 'km/h'
       icon: 'mdi:calendar-today'
     sensor.landroid_raindelay_s:
-      friendly_name: "Landroid RainDelay (s.)"
+      friendly_name: "RainDelay (s.)"
       icon: "mdi:weather-rainy"
       unit_of_measurement: 'Sec.'
 
 # Total ##########
     sensor.landroid_totaltime:
-      friendly_name: "Landroid TotalTime"
+      friendly_name: "TotalTime"
       icon: "mdi:bus-clock"
       unit_of_measurement: "Min."
     sensor.landroid_totaldist:
-      friendly_name: "Landroid TotalDist"
+      friendly_name: "TotalDist"
       icon: "mdi:map-marker-distance"
       unit_of_measurement: "m."
     sensor.landroid_bladetime:
-      friendly_name: "Landroid BladeTime"
+      friendly_name: BladeTime"
       icon: "mdi:paper-cut-vertical"
       unit_of_measurement: "Min." 
 
 # Batterie ##########
     sensor.landroid_batchargecycles:
-      friendly_name: "Landroid BatChargeCycles"
+      friendly_name: "Battery Charge Cycles"
       icon: "mdi:power-plug"
     sensor.landroid_batcharging:
-      friendly_name: "Landroid BatCharging"
+      friendly_name: "Battery Charging"
     sensor.landroid_batvoltage:
-      friendly_name: "Landroid BatVoltage"
+      friendly_name: "Battery Voltage"
       unit_of_measurement: "V"
       icon: "mdi:battery-charging-100"
     sensor.landroid_battemp:
-      friendly_name: "Landroid BatTemp"
+      friendly_name: "Battery Temperature"
       unit_of_measurement: "°C"
     sensor.landroid_batlevel:
-      friendly_name: "Landroid BatLevel"
+      friendly_name: "Battery Level"
       unit_of_measurement: "%"
 
 # Angles ##########
     sensor.landroid_pitch:
-      friendly_name: "Landroid Tangage"
+      friendly_name: "Tangage"
       icon: "mdi:seat-flat-angled"
       unit_of_measurement: "°"
     sensor.landroid_roll:
-      friendly_name: "Landroid Roulis"
+      friendly_name: "Roulis"
       icon: "mdi:axis-x-rotate-clockwise"
       unit_of_measurement: "°"
     sensor.landroid_yaw:
-      friendly_name: "Landroid Embardée"
+      friendly_name: "Embardée"
       icon: "mdi:axis-z-rotate-clockwise"
       unit_of_measurement: "°" 
-
+      
 # Scheduler ##########
+    sensor.landroid_sched_today_start:
+      icon_template: "mdi:calendar-clock"
+      friendly_name: "Schedule today start time"
+    sensor.landroid_sched_today_starthour:
+      icon_template: "mdi:calendar-clock"
+      friendly_name: "Schedule today start hour"
+    sensor.landroid_sched_today_startminute:
+      icon_template: "mdi:calendar-clock"
+      friendly_name: "Schedule today start minute"
+    sensor.landroid_sched_today_durationminutes:
+      icon_template: "mdi:clock-end"
+      friendly_name: "Schedule today duration"
+    sensor.landroid_sched_today_cutedge:
+      icon_template: "mdi:scissors-cutting"
+      friendly_name: "Schedule today cut edge"
+    sensor.landroid_sched_today_end:
+      icon_template: "mdi:clock-end"
+      friendly_name: "Schedule today end time"
+
     sensor.landroid_sched1:
-      friendly_name: "Calendrier Lundi"
+      friendly_name: "Schedule Monday"
       icon: "mdi:timetable"
+    sensor.landroid_sched1_actual:
+      friendly_name: "Schedule Monday Actual"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_sched1_start:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Monday Start Time"
+    sensor.landroid_sched1_starthour:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Monday Start Hour"
+    sensor.landroid_sched1_startminute:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Monday Start Minute"
+    sensor.landroid_sched1_durationminutes:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Monday Duration"
+    sensor.landroid_sched1_cutedge:
+      icon: "mdi:scissors-cutting"
+      friendly_name: "Schedule Monday Cut Edge"
+    sensor.landroid_sched1_end:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Monday End Time"
+
     sensor.landroid_sched2:
-      friendly_name: "Calendrier Mardi"
+      friendly_name: "Schedule Tuesday"
       icon: "mdi:timetable"
+    sensor.landroid_sched2_actual:
+      friendly_name: "Schedule Tuesday Actual"
+      icon: "mdi:calendar-clock"  
+    sensor.landroid_sched2_start:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Tuesday Start Time"
+    sensor.landroid_sched2_starthour:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Tuesday Start Hour"
+    sensor.landroid_sched2_startminute:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Tuesday Start Minute"
+    sensor.landroid_sched2_durationminutes:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Tuesday Duration"
+    sensor.landroid_sched2_cutedge:
+      icon: "mdi:scissors-cutting"
+      friendly_name: "Schedule Tuesday Cut Edge"
+    sensor.landroid_sched2_end:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Tuesday End Time"
+
     sensor.landroid_sched3:
-      friendly_name: "Calendrier Mercredi"
+      friendly_name: "Schedule Wednesday"
       icon: "mdi:timetable"
+    sensor.landroid_sched3_actual:
+      friendly_name: "Schedule Wednesday Actual"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_sched3_start:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Wednesday Start Time"
+    sensor.landroid_sched3_starthour:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Wednesday Start Hour"
+    sensor.landroid_sched3_startminute:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Wednesday Start Minute"
+    sensor.landroid_sched3_durationminutes:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Wednesday Duration"
+    sensor.landroid_sched3_cutedge:
+      icon: "mdi:scissors-cutting"
+      friendly_name: "Schedule Wednesday Cut Edge"
+    sensor.landroid_sched3_end:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Wednesday End Time"
+
     sensor.landroid_sched4:
-      friendly_name: "Calendrier Jeudi"
+      friendly_name: "Schedule Thursday"
       icon: "mdi:timetable"
+    sensor.landroid_sched4_actual:
+      friendly_name: "Schedule Thursday Actual"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_sched4_start:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Thursday Start Time"
+    sensor.landroid_sched4_starthour:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Thursday Start Hour"
+    sensor.landroid_sched4_startminute:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Thursday Start Minute"
+    sensor.landroid_sched4_durationminutes:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Thursday Duration"
+    sensor.landroid_sched4_cutedge:
+      icon: "mdi:scissors-cutting"
+      friendly_name: "Schedule Thursday Cut Edge"
+    sensor.landroid_sched4_end:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Thursday End Time"
+
     sensor.landroid_sched5:
-      friendly_name: "Calendrier Vendredi"
+      friendly_name: "Schedule Friday"
       icon: "mdi:timetable"
+    sensor.landroid_sched5_actual:
+      friendly_name: "Schedule Friday Actual"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_sched5_start:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Friday Start Time"
+    sensor.landroid_sched5_starthour:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Friday Start Hour"
+    sensor.landroid_sched5_startminute:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Friday Start Minute"
+    sensor.landroid_sched5_durationminutes:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Friday Duration"
+    sensor.landroid_sched5_cutedge:
+      icon: "mdi:scissors-cutting"
+      friendly_name: "Schedule Friday Cut Edge"
+    sensor.landroid_sched5_end:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Friday End Time" 
+
     sensor.landroid_sched6:
-      friendly_name: "Calendrier Samedi"
+      friendly_name: "Schedule Saturday"
       icon: "mdi:timetable"
+    sensor.landroid_sched6_actual:
+      friendly_name: "Schedule Saturday Actual"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_sched6_start:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Saturday Start Time"
+    sensor.landroid_sched6_starthour:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Saturday Start Hour"
+    sensor.landroid_sched6_startminute:
+      icon: "mdi:calendar-clock"
+      friendly_name: "Schedule Saturday Start Minute"
+    sensor.landroid_sched6_durationminutes:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Saturday Duration"
+    sensor.landroid_sched6_cutedge:
+      icon: "mdi:scissors-cutting"
+      friendly_name: "Schedule Saturday Cut Edge"
+    sensor.landroid_sched6_end:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Saturday End Time"
+
     sensor.landroid_sched0:
-      friendly_name: "Calendrier Dimanche"
+      friendly_name: "Schedule Sunday"
       icon: "mdi:timetable"
-
-# Actual scheduler
-    sensor.landroid_1_actual:
-      friendly_name: "Landroid Planning Lundi"
+    sensor.landroid_sched0_actual:
+      friendly_name: "Schedule Sunday Actual"
       icon: "mdi:calendar-clock"
-    sensor.landroid_2_actual:
-      friendly_name: "Landroid Planning Mardi"
+    sensor.landroid_sched0_start:
       icon: "mdi:calendar-clock"
-    sensor.landroid_3_actual:
-      friendly_name: "Landroid Planning Mercredi"
+      friendly_name: "Schedule Sunday Start Time"
+    sensor.landroid_sched0_starthour:
       icon: "mdi:calendar-clock"
-    sensor.landroid_4_actual:
-      friendly_name: "Landroid Planning Jeudi"
+      friendly_name: "Schedule Sunday Start Hour"
+    sensor.landroid_sched0_startminute:
       icon: "mdi:calendar-clock"
-    sensor.landroid_5_actual:
-      friendly_name: "Landroid Planning Vendredi"
-      icon: "mdi:calendar-clock"
-    sensor.landroid_6_actual:
-      friendly_name: "Landroid Planning Samedi"
-      icon: "mdi:calendar-clock"
-    sensor.landroid_0_actual:
-      friendly_name: "Landroid Planning Dimanche"
-      icon: "mdi:calendar-clock"
-
+      friendly_name: "Schedule Sunday Start Minute"
+    sensor.landroid_sched0_durationminutes:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Sunday Duration"
+    sensor.landroid_sched0_cutedge:
+      icon: "mdi:scissors-cutting"
+      friendly_name: "Schedule Sunday Cut Edge"
+    sensor.landroid_sched0_end:
+      icon: "mdi:clock-end"
+      friendly_name: "Schedule Sunday End Time"
+      
 # Switch ##########
     switch.landroid_mowing:
       friendly_name: "En Tonte"
@@ -323,47 +472,47 @@
           return 'red';
 
     input_boolean.landroid_0:
-      friendly_name: "Dimanche"
+      friendly_name: "Sunday"
     input_boolean.landroid_0_cuttoedge:
       friendly_name: "Cut to edge"
     input_boolean.landroid_1:
-      friendly_name: "Lundi"
+      friendly_name: "Monday"
     input_boolean.landroid_1_cuttoedge:
       friendly_name: "Cut to edge"
     input_boolean.landroid_2:
-      friendly_name: "Mardi"
+      friendly_name: "Tuesday"
     input_boolean.landroid_2_cuttoedge:
       friendly_name: "Cut to edge"
     input_boolean.landroid_3:
-      friendly_name: "Mercredi"
+      friendly_name: "Wednesday"
     input_boolean.landroid_3_cuttoedge:
       friendly_name: "Cut to edge"
     input_boolean.landroid_4:
-      friendly_name: "Jeudi"
+      friendly_name: "Tuesday"
     input_boolean.landroid_4_cuttoedge:
       friendly_name: "Cut to edge"
     input_boolean.landroid_5:
-      friendly_name: "Vendredi"
+      friendly_name: "Friday"
     input_boolean.landroid_5_cuttoedge:
       friendly_name: "Cut to edge"
     input_boolean.landroid_6:
-      friendly_name: "Samedi"
+      friendly_name: "Saturday"
     input_boolean.landroid_6_cuttoedge:
       friendly_name: "Cut to edge"
 
 # Automation ######
     automation.landroid_sync_values:
-      friendly_name: "Landroid - Sync Values"
+      friendly_name: "Sync Values"
       icon: "mdi:sync"
 # Scripts #########
     script.landroid_start:
-      friendly_name: "Landroid - Démarrer Tonte"
+      friendly_name: "Démarrer Tonte"
       icon: "mdi:play"
     script.landroid_stop:
-      friendly_name: "Landroid - Arrêter Tonte"
+      friendly_name: "Arrêter Tonte"
       icon: "mdi:home"
     script.landroid_enableordisable:
-      friendly_name: "Landroid - On/Off"
+      friendly_name: "On/Off"
       icon: "mdi:power-standby"
       templates:
         icon_color: >
@@ -400,3 +549,4 @@
     script.landroid_set_scheduler0:
       friendly_name: "Landroid - Sauvegarde Dimanche"
       icon: "mdi:content-save-settings"
+      
