@@ -1,0 +1,343 @@
+# Sensor ##########
+    sensor.landroid_worx_site:
+      friendly_name: "Worx Website"
+      icon: "mdi:web"
+      templates:
+        icon_color: >
+          if (state === '200') return 'green';
+          else return 'red';
+    sensor.landroid_worx_api_site:
+      friendly_name: "Worx API Website"
+      icon: "mdi:web"
+      templates:
+        icon_color: >
+          if (state === '200') return 'green';
+          else if (state === '401') return 'orange';
+          else return 'red';
+
+    sensor.worx_sensors:
+      friendly_name: Landroid Worx Sensors
+      icon: mdi:format-list-numbered
+
+    sensor.landroid_ip:
+      friendly_name: Landroid IP
+      icon: mdi:ip-network
+    sensor.landroid_lang:
+      icon: "mdi:translate"
+      friendly_name: Landroid Lang
+    sensor.landroid_sn:
+      friendly_name: "Landroid SN"
+      icon: "mdi:barcode"
+    sensor.landroid_mac:
+      friendly_name: "Landroid MAC"
+      icon: "mdi:numeric"
+    sensor.landroid_firmware:
+      friendly_name: "Landroid Firmware"
+      icon: "mdi:information-variant" 
+    sensor.landroid_acs_state: 
+      friendly_name: "Anti Collision System State"
+      icon: "mdi:cube-scan"
+      templates:
+        icon_color: >
+          if (state === 'ok') return 'green';
+          else return 'red';
+    sensor.landroid_acs_enabled: 
+      friendly_name: "Anti Collision System Enabled"
+      icon: "mdi:cube-scan"
+      templates:
+        icon_color: >
+          if (state === '1') return 'green';
+          else return 'red';
+    binary_sensor.landroid_acs_status: 
+      friendly_name: "Anti Collision System Status"
+      icon: "mdi:cube-scan"
+      templates:
+        icon_color: >
+          if (state === 'on') return 'green';
+          else return 'red';
+
+    sensor.landroid_wifi:
+      friendly_name: "Landroid Wifi Quality"
+      unit_of_measurement: 'dB'
+
+    sensor.landroid_datetime:
+      friendly_name: "Landroid Dernière Mise à Jour"
+      icon: "mdi:update"
+      device_class: "timestamp"
+
+    sensor.landroid_active:
+      friendly_name: "Landroid Status"
+
+    sensor.landroid_statuscode:
+      icon: "mdi:clipboard-list"
+      friendly_name: "Landroid Status Code"
+    sensor.landroid_statusdesc:
+      friendly_name: "Landroid Status"
+      icon_color: >-
+        # if (state === 'Home') return 'rgb(70, 190, 244)';
+        if (state === 'Home') return 'black';
+        else if (state === 'Mowing') return 'green';
+        else if (state === 'Going Home') return 'white';
+        else return 'red';
+    sensor.landroid_errorcode:
+      friendly_name: "Landroid Error Code"
+      icon: mdi:bug
+    sensor.landroid_errordesc:
+      friendly_name: "Landroid Erreur"
+      icon: mdi:bug-check
+      templates:
+        icon_color: >-
+          if (state === 'No Error') return 'green';
+          return 'red';
+
+    sensor.landroid_raindelay:
+      friendly_name: "Landroid RainDelay"
+      icon: "mdi:weather-rainy"
+      unit_of_measurement: "Min."
+    sensor.landroid_timeext:
+      friendly_name: "Landroid TimeExt"
+      icon: "mdi:clock-start"
+      unit_of_measurement: "%"
+
+# Total ##########
+    sensor.landroid_totaltime:
+      friendly_name: "Landroid TotalTime"
+      icon: "mdi:bus-clock"
+      unit_of_measurement: "Min."
+    sensor.landroid_totaldist:
+      friendly_name: "Landroid TotalDist"
+      icon: "mdi:map-marker-distance"
+      unit_of_measurement: "m."
+    sensor.landroid_bladetime:
+      friendly_name: "Landroid BladeTime"
+      icon: "mdi:paper-cut-vertical"
+      unit_of_measurement: "Min." 
+
+# Batterie ##########
+    sensor.landroid_batchargecycles:
+      friendly_name: "Landroid BatChargeCycles"
+      icon: "mdi:power-plug"
+    sensor.landroid_batcharging:
+      friendly_name: "Landroid BatCharging"
+    sensor.landroid_batvoltage:
+      friendly_name: "Landroid BatVoltage"
+      unit_of_measurement: "V"
+      icon: "mdi:battery-charging-100"
+    sensor.landroid_battemp:
+      friendly_name: "Landroid BatTemp"
+      unit_of_measurement: "°C"
+    sensor.landroid_batlevel:
+      friendly_name: "Landroid BatLevel"
+      unit_of_measurement: "%"
+# Angles ##########
+    sensor.landroid_pitch:
+      friendly_name: "Landroid Tangage"
+      icon: "mdi:seat-flat-angled"
+      unit_of_measurement: "°"
+    sensor.landroid_roll:
+      friendly_name: "Landroid Roulis"
+      icon: "mdi:axis-x-rotate-clockwise"
+      unit_of_measurement: "°"
+    sensor.landroid_yaw:
+      friendly_name: "Landroid Embardée"
+      icon: "mdi:axis-z-rotate-clockwise"
+      unit_of_measurement: "°" 
+
+    sensor.landroid_sched1:
+      friendly_name: "Calendrier Lundi"
+      icon: "mdi:timetable"
+    sensor.landroid_sched2:
+      friendly_name: "Calendrier Mardi"
+      icon: "mdi:timetable"
+    sensor.landroid_sched3:
+      friendly_name: "Calendrier Mercredi"
+      icon: "mdi:timetable"
+    sensor.landroid_sched4:
+      friendly_name: "Calendrier Jeudi"
+      icon: "mdi:timetable"
+    sensor.landroid_sched5:
+      friendly_name: "Calendrier Vendredi"
+      icon: "mdi:timetable"
+    sensor.landroid_sched6:
+      friendly_name: "Calendrier Samedi"
+      icon: "mdi:timetable"
+    sensor.landroid_sched0:
+      friendly_name: "Calendrier Dimanche"
+      icon: "mdi:timetable"
+
+    sensor.landroid_1_actual:
+      friendly_name: "Landroid Planning Lundi"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_2_actual:
+      friendly_name: "Landroid Planning Mardi"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_3_actual:
+      friendly_name: "Landroid Planning Mercredi"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_4_actual:
+      friendly_name: "Landroid Planning Jeudi"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_5_actual:
+      friendly_name: "Landroid Planning Vendredi"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_6_actual:
+      friendly_name: "Landroid Planning Samedi"
+      icon: "mdi:calendar-clock"
+    sensor.landroid_0_actual:
+      friendly_name: "Landroid Planning Dimanche"
+      icon: "mdi:calendar-clock"
+
+# Switch ##########
+    switch.landroid_mowing:
+      friendly_name: "En Tonte"
+      assumed_state: true
+
+# Input Number ####
+    input_number.landroid_updated:
+    #   templates:
+    #     icon_template: >
+    #       if (state === '1') return 'mdi:heart-pulse';
+    #       return 'mdi:heart-broken';
+      icon: "mdi:pulse"      
+    input_number.landroid_raindelay:
+      friendly_name: "Landroid Délai aprés Pluie"
+      icon: "mdi:weather-lightning-rainy"
+    input_number.landroid_timeext:
+      friendly_name: "Landroid Time extension"
+      icon: "mdi:clock-out"
+
+    input_number.landroid_1_duration:
+      friendly_name: "Landroid Durée (Min.)"
+      unit_of_measurement: "Min."
+    input_number.landroid_2_duration:
+      friendly_name: "Landroid Durée (Min.)"
+      unit_of_measurement: "Min."
+    input_number.landroid_3_duration:
+      friendly_name: "Landroid Durée (Min.)"
+      unit_of_measurement: "Min."
+    input_number.landroid_4_duration:
+      friendly_name: "Landroid Durée (Min.)"
+      unit_of_measurement: "Min."
+    input_number.landroid_5_duration:
+      friendly_name: "Landroid Durée (Min.)"
+      unit_of_measurement: "Min."
+    input_number.landroid_6_duration:
+      friendly_name: "Landroid Durée (Min.)"
+      unit_of_measurement: "Min."
+    input_number.landroid_0_duration:
+      friendly_name: "Landroid Durée (Min.)"
+      unit_of_measurement: "Min."
+
+# Input DateTime ##
+    input_datetime.landroid_1_time:
+      friendly_name: "Landroid Début"
+    input_datetime.landroid_2_time:
+      friendly_name: "Landroid Début"
+    input_datetime.landroid_3_time:
+      friendly_name: "Landroid Début"
+    input_datetime.landroid_4_time:
+      friendly_name: "Landroid Début"
+    input_datetime.landroid_5_time:
+      friendly_name: "Landroid Début"
+    input_datetime.landroid_6_time:
+      friendly_name: "Landroid Début"
+    input_datetime.landroid_0_time:
+      friendly_name: "Landroid Début"
+
+# Input Boolean ###
+    input_boolean.landroid_raindelay_settings:
+      friendly_name: "Délai aprés Pluie"
+    input_boolean.landroid_timext_settings:
+      friendly_name: "Time extension"
+    input_boolean.landroid_sched_settings:
+      friendly_name: "Planning de Tonte"
+    input_boolean.landroid_info_toggle:
+      friendly_name: "Information"
+    input_boolean.landroid_automations_toggle:
+      friendly_name: "Automations"
+
+    input_boolean.landroid_status_enabled:
+      friendly_name: "Landroid On/Off"
+      templates:
+        icon_color: >
+          if (state === 'on') return 'green';
+          return 'red';
+
+    input_boolean.landroid_0:
+      friendly_name: "Dimanche"
+    input_boolean.landroid_0_cuttoedge:
+      friendly_name: "Cut to edge"
+    input_boolean.landroid_1:
+      friendly_name: "Lundi"
+    input_boolean.landroid_1_cuttoedge:
+      friendly_name: "Cut to edge"
+    input_boolean.landroid_2:
+      friendly_name: "Mardi"
+    input_boolean.landroid_2_cuttoedge:
+      friendly_name: "Cut to edge"
+    input_boolean.landroid_3:
+      friendly_name: "Mercredi"
+    input_boolean.landroid_3_cuttoedge:
+      friendly_name: "Cut to edge"
+    input_boolean.landroid_4:
+      friendly_name: "Jeudi"
+    input_boolean.landroid_4_cuttoedge:
+      friendly_name: "Cut to edge"
+    input_boolean.landroid_5:
+      friendly_name: "Vendredi"
+    input_boolean.landroid_5_cuttoedge:
+      friendly_name: "Cut to edge"
+    input_boolean.landroid_6:
+      friendly_name: "Samedi"
+    input_boolean.landroid_6_cuttoedge:
+      friendly_name: "Cut to edge"
+
+# Automation ######
+    automation.landroid_sync_values:
+      friendly_name: "Landroid - Sync Values"
+      icon: "mdi:sync"
+# Scripts #########
+    script.landroid_start:
+      friendly_name: "Landroid - Démarrer Tonte"
+      icon: "mdi:play"
+    script.landroid_stop:
+      friendly_name: "Landroid - Arrêter Tonte"
+      icon: "mdi:home"
+    script.landroid_enableordisable:
+      friendly_name: "Landroid - On/Off"
+      icon: "mdi:power-standby"
+      templates:
+        icon_color: >
+          if (state === 'on') return 'green';
+          return 'red';
+    script.landroid_persistent_notification_clean:
+      friendly_name: "Clean Landroid Persistent Notification"
+      icon: "mdi:squeegee"
+
+    script.landroid_set_raindelay:
+      friendly_name: "Landroid - Sauvegarde"
+      icon: "mdi:content-save-settings"
+    script.landroid_set_timeext:
+      friendly_name: "Landroid - Time extension"
+      icon: "mdi:content-save-settings"
+    script.landroid_set_scheduler1:
+      friendly_name: "Landroid - Sauvegarde Lundi"
+      icon: "mdi:content-save-settings"
+    script.landroid_set_scheduler2:
+      friendly_name: "Landroid - Sauvegarde Mardi"
+      icon: "mdi:content-save-settings"
+    script.landroid_set_scheduler3:
+      friendly_name: "Landroid - Sauvegarde Mercredi"
+      icon: "mdi:content-save-settings"
+    script.landroid_set_scheduler4:
+      friendly_name: "Landroid - Sauvegarde Jeudi"
+      icon: "mdi:content-save-settings"
+    script.landroid_set_scheduler5:
+      friendly_name: "Landroid - Sauvegarde Vendredi"
+      icon: "mdi:content-save-settings"
+    script.landroid_set_scheduler6:
+      friendly_name: "Landroid - Sauvegarde Samedi"
+      icon: "mdi:content-save-settings"
+    script.landroid_set_scheduler0:
+      friendly_name: "Landroid - Sauvegarde Dimanche"
+      icon: "mdi:content-save-settings"
