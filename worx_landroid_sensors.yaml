@@ -26,7 +26,7 @@
     scan_interval: 70
     value_template: '{{ value_json.value }}'
 
-# Infos appareil ##########
+# Device info ##########
   - platform: template
     sensors:
       landroid_lang:
@@ -194,7 +194,7 @@
         icon_template: "mdi:weather-rainy"
         unit_of_measurement: 'Sec.'
         value_template: "{{ (states('sensor.landroid_raindelay') | int) * 60 }}"
-# Statistiques ##########
+# Statistics ##########
       landroid_totaltime:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["st"]["wt"] }}'
       landroid_totaldist:
@@ -202,7 +202,7 @@
       landroid_bladetime:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["st"]["b"] }}'
 
-# Batterie ##########
+# Battery ##########
       landroid_batchargecycles:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["bt"]["nr"] }}'
       landroid_batcharging:
@@ -284,7 +284,7 @@
       landroid_acs:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["modules"]["US"]["stat"] }}'
 
-# Calendrier ##########
+# Schedule ##########
       landroid_sched1_starthour:
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][1][0][0] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][1][0][1] }}"
       landroid_sched1_startminute:
@@ -351,7 +351,7 @@
 # Templates ##########
   - platform: template
     sensors:
-# Actual scheduler
+# Actual schedule
       landroid_1_actual:
         value_template: "{{ states('sensor.landroid_sched1_starthour') }}:{{ states('sensor.landroid_sched1_startminute') }}, {{ states('sensor.landroid_sched1_durationminutes') }} Minutes{% if states('sensor.landroid_sched1_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
       landroid_2_actual:
