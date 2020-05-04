@@ -1,4 +1,5 @@
-# Sensor ##########
+# Sensors ##########
+# Infos Site ##########
     sensor.landroid_worx_site:
       friendly_name: "Worx Website"
       icon: "mdi:web"
@@ -15,10 +16,12 @@
           else if (state === '401') return 'orange';
           else return 'red';
 
+# Landroid Sensors ##########
     sensor.worx_sensors:
       friendly_name: Landroid Worx Sensors
       icon: mdi:format-list-numbered
 
+# Infos appareil ##########
     sensor.landroid_ip:
       friendly_name: Landroid IP
       icon: mdi:ip-network
@@ -56,6 +59,7 @@
           if (state === 'on') return 'green';
           else return 'red';
 
+# Status ##########
     sensor.landroid_wifi:
       friendly_name: "Landroid Wifi Quality"
       unit_of_measurement: 'dB'
@@ -90,6 +94,7 @@
           if (state === 'No Error') return 'green';
           return 'red';
 
+# Paramètres ##########
     sensor.landroid_raindelay:
       friendly_name: "Landroid RainDelay"
       icon: "mdi:weather-rainy"
@@ -98,6 +103,57 @@
       friendly_name: "Landroid TimeExt"
       icon: "mdi:clock-start"
       unit_of_measurement: "%"
+
+# Calculs  ##########
+    sensor.landroid_dist_yesterday:
+      friendly_name: "Landroid Dist. Yesterday"
+      unit_of_measurement: 'm.'
+      icon: 'mdi:calendar-today'
+    sensor.landroid_dist_today:
+      friendly_name: "Landroid Dist. Today"
+      unit_of_measurement: 'm.'
+      icon: "mdi:map-marker-distance"
+    sensor.landroid_time_yesterday:
+      friendly_name: "Landroid Worktime Yesterday"
+      unit_of_measurement: 'Min.'
+      icon: 'mdi:calendar-today'
+    sensor.landroid_time_today:
+      friendly_name: "Landroid Worktime Today"
+      unit_of_measurement: 'Min.'
+      icon: "mdi:bus-clock"
+    sensor.landroid_last_update:
+      friendly_name: "Landroid Last Update"
+      icon: "mdi:calendar-clock"
+
+# Statistiques Human ##########
+    sensor.landroid_totaldist_human:
+      friendly_name: "Landroid Distance"
+      icon: "mdi:map-marker-distance"
+    sensor.landroid_totaltime_human:
+      friendly_name: "Landroid Worktime"
+      icon: "mdi:bus-clock"
+    sensor.landroid_bladetime_human:
+      friendly_name: "Landroid BladeTime"
+    sensor.landroid_speed:
+      friendly_name: "Landroid Average Speed"
+      unit_of_measurement: 'km/h'
+      icon: "mdi:gauge"
+    sensor.landroid_speed_last:
+      friendly_name: "Landroid Last Speed"
+      unit_of_measurement: 'km/h'
+      icon: "mdi:gauge"
+    sensor.landroid_speed_today:
+      friendly_name: "Landroid Average Speed Today"
+      unit_of_measurement: 'km/h'
+      icon: "mdi:gauge"
+    sensor.landroid_speed_yesterday:
+      friendly_name: "Landroid Average Speed Yesterday"
+      unit_of_measurement: 'km/h'
+      icon: 'mdi:calendar-today'
+    sensor.landroid_raindelay_s:
+      friendly_name: "Landroid RainDelay (s.)"
+      icon: "mdi:weather-rainy"
+      unit_of_measurement: 'Sec.'
 
 # Total ##########
     sensor.landroid_totaltime:
@@ -129,6 +185,7 @@
     sensor.landroid_batlevel:
       friendly_name: "Landroid BatLevel"
       unit_of_measurement: "%"
+
 # Angles ##########
     sensor.landroid_pitch:
       friendly_name: "Landroid Tangage"
@@ -143,6 +200,7 @@
       icon: "mdi:axis-z-rotate-clockwise"
       unit_of_measurement: "°" 
 
+# Scheduler ##########
     sensor.landroid_sched1:
       friendly_name: "Calendrier Lundi"
       icon: "mdi:timetable"
@@ -165,6 +223,7 @@
       friendly_name: "Calendrier Dimanche"
       icon: "mdi:timetable"
 
+# Actual scheduler
     sensor.landroid_1_actual:
       friendly_name: "Landroid Planning Lundi"
       icon: "mdi:calendar-clock"

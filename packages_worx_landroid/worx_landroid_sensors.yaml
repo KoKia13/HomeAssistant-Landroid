@@ -26,6 +26,7 @@
     scan_interval: 70
     value_template: '{{ value_json.value }}'
 
+
 # Infos appareil ##########
   - platform: template
     sensors:
@@ -125,76 +126,44 @@
       landroid_timeext:
         value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["sc"]["p"] }}'
 
-# Conversions  ##########
+# Calculs  ##########
   - platform: template
     sensors:
       landroid_dist_yesterday:
-        friendly_name: "Landroid Dist. Yesterday"
-        unit_of_measurement: 'm.'
         value_template: "{{ (states('input_number.landroid_dist_yesterday') | int) }}"
       landroid_dist_today:
-        friendly_name: "Landroid Dist. Today"
-        unit_of_measurement: 'm.'
         value_template: "{{ (states('sensor.landroid_totaldist') | int) - (states('input_number.landroid_totaldist_today') | int) }}"
-
       landroid_time_yesterday:
-        friendly_name: "Landroid Worktime Yesterday"
-        unit_of_measurement: 'Min.'
         value_template: "{{ (states('input_number.landroid_time_yesterday') | int) }}"
       landroid_time_today:
-        friendly_name: "Landroid Worktime Today"
-        unit_of_measurement: 'Min.'
         value_template: "{{ (states('sensor.landroid_totaltime') | int) - (states('input_number.landroid_totaltime_today') | int) }}"
-
       landroid_last_update:
-        friendly_name: "Landroid Last Update"
         value_template: "{{ relative_time(states.sensor.landroid_datetime.last_updated) }}"
         
 # Statistiques Human ##########
       landroid_totaldist_human:
-        friendly_name: "Landroid Distance"
         value_template: "{% set dist = (states.sensor.landroid_totaldist.state | int) | int %}{% set meters = ((dist % 1000)) | int %}{% set kms = ((dist) / 1000) | int %}{{ kms }}km. {{ meters }}m."
-        icon_template: "mdi:map-marker-distance"
       landroid_totaltime_human:
-        friendly_name: "Landroid Worktime"
         value_template: "{% set time = (states.sensor.landroid_totaltime.state | int) | int %}{% set minutes = ((time % 60)) | int %}{% set hours = ((time % 1440) / 60) | int %}{% set days = (time / 1440) | int %}{%- if time < 60 -%}Less than a minute{%- else -%}{%- if days > 0 -%}{{ days }}d.{%- endif -%}{%- if hours > 0 -%}{%- if days > 0 -%}{{ ' ' }}{%- endif -%}{{ hours }}h.{%- endif -%}{%- if minutes > 0 -%}{%- if days > 0 or hours > 0 -%}{{ ' ' }}{%- endif -%}{{ minutes }}min.{%- endif -%}{%- endif -%}"
-        icon_template: "mdi:bus-clock"
       landroid_bladetime_human:
-        friendly_name: "Landroid BladeTime"
         value_template: "{% set time = (states.sensor.landroid_bladetime.state | int) | int %}{% set minutes = ((time % 60)) | int %}{% set hours = ((time % 1440) / 60) | int %}{% set days = (time / 1440) | int %}{%- if time < 60 -%}Less than a minute{%- else -%}{%- if days > 0 -%}{{ days }}d.{%- endif -%}{%- if hours > 0 -%}{%- if days > 0 -%}{{ ' ' }}{%- endif -%}{{ hours }}h.{%- endif -%}{%- if minutes > 0 -%}{%- if days > 0 or hours > 0 -%}{{ ' ' }}{%- endif -%}{{ minutes }}min.{%- endif -%}{%- endif -%}"
-
       landroid_speed:
-        friendly_name: "Landroid Average Speed"
-        unit_of_measurement: 'km/h'
-        icon_template: "mdi:gauge"
         value_template: "{{ (((states('sensor.landroid_totaldist') | int) * 0.06) / (states('sensor.landroid_totaltime') | int)) | round(2) }}"
       landroid_speed_last:
-        friendly_name: "Landroid Last Speed"
-        unit_of_measurement: 'km/h'
-        icon_template: "mdi:gauge"
         value_template: "{{ (((states('input_number.landroid_dist_last') | int) * 0.06) / (states('input_number.landroid_time_last') | int)) | round(2) }}"
         #  {% if (states('input_number.landroid_time_last') | int) is equalto 0 %}
         #    0
         #  {% else %}
         #    (((states('input_number.landroid_dist_last') | int) * 0.06) / (states('input_number.landroid_time_last') | int)) | round(2)
         #  {% endif %}
-        
       landroid_speed_today:
-        friendly_name: "Landroid Average Speed Today"
-        unit_of_measurement: 'km/h'
-        icon_template: "mdi:gauge"
         value_template: "{{ (((states('sensor.landroid_dist_today') | int) * 0.06) / (states('sensor.landroid_time_today') | int)) | round(2) }}"
       landroid_speed_yesterday:
-        friendly_name: "Landroid Average Speed Yesterday"
-        unit_of_measurement: 'km/h'
-        icon_template: "mdi:gauge"
         value_template: "{{ (((states('sensor.landroid_dist_yesterday') | int) * 0.06) / (states('sensor.landroid_time_yesterday') | int)) | round(2) }}"
       landroid_raindelay_s:
-        friendly_name: "Landroid RainDelay (s.)"
-        icon_template: "mdi:weather-rainy"
-        unit_of_measurement: 'Sec.'
         value_template: "{{ (states('sensor.landroid_raindelay') | int) * 60 }}"
-# Statistiques ##########
+
+# Total ##########
       landroid_totaltime:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["st"]["wt"] }}'
       landroid_totaldist:
@@ -273,6 +242,7 @@
             {%- else -%}mdi:battery-outline
             {%- endif %}
           {%- endif %}
+
 # Angles ##########
       landroid_pitch:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["dmp"][0] }}'
@@ -280,9 +250,12 @@
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["dmp"][1] }}'
       landroid_yaw:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["dmp"][2] }}'
+
 # Options ##########
-      landroid_acs:
+      landroid_acs_state:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["modules"]["US"]["stat"] }}'
+      landroid_acs_enabled:
+        value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["modules"]["US"]["enabled"] }}'
 
 # Calendrier ##########
       landroid_sched1_starthour:
