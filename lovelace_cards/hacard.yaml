@@ -18,7 +18,7 @@ elements:
       transform: 'translate(60%, 15%) scale(1, 1)'
     title: Signal WLAN
     type: state-label
-  - entity: sensor.landroid_acs
+  - entity: binary_sensor.landroid_acs_status
     style:
       left: 45%
       opacity: 1
@@ -202,7 +202,6 @@ elements:
     title: Durée de Travail Totale
     type: state-label
   - entity: sensor.landroid_bladetime
-    icon: 'mdi:fan'
     style:
       '--iron-icon-fill-color': 'rgb(3, 169, 244)'
       left: 42%
@@ -212,7 +211,6 @@ elements:
     title: Durée Utilisation Lames
     type: state-icon
   - entity: sensor.landroid_bladetime
-    icon: 'mdi:paper-cut-vertical'
     style:
       color: 'rgb(3, 169, 244)'
       font-weight: bold
@@ -308,6 +306,56 @@ elements:
       transform: 'translate(-130%, 0%) scale(1, 1)'
     title: Embardée
     type: state-icon
+  - entity: sensor.landroid_sched_today_start
+    icon: 'mdi:contain-start'
+    style:
+      '--iron-icon-fill-color': orange
+      opacity: 1
+      left: 5%
+      bottom: 10%
+      transform: 'translate(0%, 0%) scale(1, 1)'
+    title: Start
+    type: state-icon
+  - entity: sensor.landroid_sched_today_start
+    style:
+      color: orange
+      font-weight: bold
+      opacity: 1
+      left: 9%
+      bottom: 10%
+      transform: 'translate(0%, 0%) scale(1, 1)'
+    title: Start
+    type: state-label
+  - entity: sensor.landroid_sched_today_end
+    icon: 'mdi:contain-end'
+    style:
+      '--iron-icon-fill-color': orange
+      opacity: 1
+      right: 5%
+      bottom: 10%
+      transform: 'translate(0%, 0%) scale(1, 1)'
+    title: End
+    type: state-icon
+  - entity: sensor.landroid_sched_today_end
+    style:
+      color: orange
+      font-weight: bold
+      opacity: 1
+      right: 9%
+      bottom: 10%
+      transform: 'translate(0%, 0%) scale(1, 1)'
+    title: End
+    type: state-label
+  - entity: sensor.landroid_sched_today_cutedge
+    style:
+      color: orange
+      font-weight: bold
+      opacity: 1
+      left: 54%
+      bottom: 9%
+      transform: 'translate(0%, 0%) scale(1, 1)'
+    title: End
+    type: state-label
   - entity: input_boolean.landroid_sched_settings
     image: /local/mower/timer-off.png
     state_filter:
