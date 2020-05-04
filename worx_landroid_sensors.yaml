@@ -30,17 +30,30 @@
   - platform: template
     sensors:
       landroid_lang:
+        friendly_name: "Language"
+        icon_template: "mdi:translate"
         value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["lg"] }}'
       landroid_sn:
+        friendly_name: "Serial number"
+        icon_template: "mdi:numeric"
         value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["sn"] }}'
       landroid_mac:
+        friendly_name: "MAC address"
+        icon_template: "mdi:barcode"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["mac"] }}'
       landroid_firmware:
+        friendly_name: "Firmware"
+        icon_template: "mdi:information-variant"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["fw"] }}'
       landroid_ip:
+        friendly_name: "IP Address"
+        icon_template: "mdi:ip-network"
         value_template: !secret landroid_ip
+        
 # Status ##########
       landroid_wifi:
+        friendly_name: "Wifi quality"
+        unit_of_measurement: 'dB'
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["rsi"] }}'
         icon_template: >-
           {% if states('sensor.landroid_wifi')|float > -56 -%}mdi:wifi-strength-4
@@ -52,17 +65,22 @@
       landroid_datetimesource:
         value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["dt"] }} {{ states.sensor.worx_sensors.attributes["cfg"]["tm"] }}'
       landroid_datetime:
-        value_template: "{{ as_timestamp(strptime(states('sensor.landroid_datetimesource'), '%d/%m/%Y %H:%M:%S')) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
+        friendly_name: "Landroid datetime"
+        icon_template: "mdi:clock"
 
       landroid_active:
+        friendly_name: "Landroid active"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["act"] }}'
         icon_template: >-
           {% if is_state("sensor.landroid_active","1") -%}mdi:heart-pulse
           {%- else -%}mdi:heart-broken
           {%- endif %}
       landroid_statuscode:
+        friendly_name: "Landroid statuscode"
+        icon_template: "mdi:go-kart-track"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["ls"] }}'
       landroid_statusdesc:
+        friendly_name: "Landroid status"
         value_template: >-
           {% if states('sensor.landroid_statuscode') == "0" -%}Idle
           {% elif states('sensor.landroid_statuscode') == "1" -%}Home
@@ -94,8 +112,11 @@
           {%- else -%}"mdi:information-variant"
           {%- endif %}
       landroid_errorcode:
+        friendly_name: "Landroid errorcode"
+        icon_template: "mdi:bug"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["le"] }}'
       landroid_errordesc:
+        friendly_name: "Landroid error"
         value_template: >-
           {% if states('sensor.landroid_errorcode') == "0" -%}No Error
           {% elif states('sensor.landroid_errorcode') == "1" -%}Trapped
@@ -115,61 +136,87 @@
           {% elif states('sensor.landroid_errorcode') == "15" -%}Timeout Finding Home
           {% elif states('sensor.landroid_errorcode') == "16" -%}Locked
           {% elif states('sensor.landroid_errorcode') == "17" -%}Battery Temperature Error
-          {% elif states('sensor.landroid_errorcode') == "Indisponible" -%}unavaiable
+          {% elif states('sensor.landroid_errorcode') == "Unknown" -%}Unknown error code
           {%- else -%}unknown
           {%- endif %}
+        icon_template: >-
+          {% if is_state('sensor.landroid_statuscode','0') -%}mdi:bug-check
+          {%- elif is_state('sensor.landroid_statuscode', '5') -%}mdi:weather-rainy
+          {%- elif is_state('sensor.landroid_statuscode', '8') -%}mdi:weather-hurricane
+          {%- elif is_state('sensor.landroid_statuscode', '9') -%}mdi:buddhism
+          {%- elif is_state('sensor.landroid_statuscode', '12') -%}mdi:battery-alert-variant-outline
+          {%- elif is_state('sensor.landroid_statuscode', '14') -%}mdi:battery-alert
+          {%- elif is_state('sensor.landroid_statuscode', '15') -%}mdi:home-alert
+          {%- elif is_state('sensor.landroid_statuscode', '16') -%}mdi:lock-alert
+          {%- elif is_state('sensor.landroid_statuscode', '17') -%}mdi:thermometer-alert
+          {%- else -%}"mdi:alert"
+          {%- endif %}
 
-# Paramètres ##########
+# Parameters ##########
       landroid_raindelay:
+        friendly_name: "Landroid rain delay"
+        icon_template: "mdi:weather-rainy"
+        unit_of_measurement: 'min'
         value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["rd"] }}'
       landroid_timeext:
+        friendly_name: "Landroid time extension"
+        icon_template: "mdi:clock-start"
+        unit_of_measurement: "%"
         value_template: '{{ states.sensor.worx_sensors.attributes["cfg"]["sc"]["p"] }}'
 
 # Conversions  ##########
   - platform: template
     sensors:
       landroid_dist_yesterday:
-        friendly_name: "Landroid Dist. Yesterday"
-        unit_of_measurement: 'm.'
+        friendly_name: "Landroid dist. yesterday"
+        unit_of_measurement: 'm'
+        icon_template: "mdi:map-marker-distance"
         value_template: "{{ (states('input_number.landroid_dist_yesterday') | int) }}"
       landroid_dist_today:
-        friendly_name: "Landroid Dist. Today"
-        unit_of_measurement: 'm.'
+        friendly_name: "Landroid dist. today"
+        unit_of_measurement: 'm'
+        icon_template: "mdi:map-marker-distance"
         value_template: "{{ (states('sensor.landroid_totaldist') | int) - (states('input_number.landroid_totaldist_today') | int) }}"
 
       landroid_time_yesterday:
-        friendly_name: "Landroid Worktime Yesterday"
-        unit_of_measurement: 'Min.'
+        friendly_name: "Landroid worktime yesterday"
+        unit_of_measurement: 'min'
+        icon_template: "mdi:bus-clock"
         value_template: "{{ (states('input_number.landroid_time_yesterday') | int) }}"
       landroid_time_today:
-        friendly_name: "Landroid Worktime Today"
-        unit_of_measurement: 'Min.'
+        friendly_name: "Landroid worktime today"
+        unit_of_measurement: 'min'
+        icon_template: "mdi:bus-clock"
         value_template: "{{ (states('sensor.landroid_totaltime') | int) - (states('input_number.landroid_totaltime_today') | int) }}"
 
       landroid_last_update:
-        friendly_name: "Landroid Last Update"
+        friendly_name: "Landroid last update"
+        icon_template: "mdi:update"
         value_template: "{{ relative_time(states.sensor.landroid_datetime.last_updated) }}"
         
-# Statistiques Human ##########
+# Statistics Human ##########
       landroid_totaldist_human:
-        friendly_name: "Landroid Distance"
+        friendly_name: "Landroid distance"
+        unit_of_measurement: 'm'
         value_template: "{% set dist = (states.sensor.landroid_totaldist.state | int) | int %}{% set meters = ((dist % 1000)) | int %}{% set kms = ((dist) / 1000) | int %}{{ kms }}km. {{ meters }}m."
         icon_template: "mdi:map-marker-distance"
       landroid_totaltime_human:
-        friendly_name: "Landroid Worktime"
-        value_template: "{% set time = (states.sensor.landroid_totaltime.state | int) | int %}{% set minutes = ((time % 60)) | int %}{% set hours = ((time % 1440) / 60) | int %}{% set days = (time / 1440) | int %}{%- if time < 60 -%}Less than a minute{%- else -%}{%- if days > 0 -%}{{ days }}d.{%- endif -%}{%- if hours > 0 -%}{%- if days > 0 -%}{{ ' ' }}{%- endif -%}{{ hours }}h.{%- endif -%}{%- if minutes > 0 -%}{%- if days > 0 or hours > 0 -%}{{ ' ' }}{%- endif -%}{{ minutes }}min.{%- endif -%}{%- endif -%}"
+        friendly_name: "Landroid worktime"
+        unit_of_measurement: 'min'
+        value_template: "{% set time = (states.sensor.landroid_totaltime.state | int) | int %}{% set minutes = ((time % 60)) | int %}{% set hours = ((time % 1440) / 60) | int %}{% set days = (time / 1440) | int %}{%- if time < 60 -%}Less than a minute{%- else -%}{%- if days > 0 -%}{{ days }}d.{%- endif -%}{%- if hours > 0 -%}{%- if days > 0 -%}{{ ' ' }}{%- endif -%}{{ hours }}h.{%- endif -%}{%- if minutes > 0 -%}{%- if days > 0 or hours > 0 -%}{{ ' ' }}{%- endif -%}{{ minutes }}min{%- endif -%}{%- endif -%}"
         icon_template: "mdi:bus-clock"
       landroid_bladetime_human:
-        friendly_name: "Landroid BladeTime"
-        value_template: "{% set time = (states.sensor.landroid_bladetime.state | int) | int %}{% set minutes = ((time % 60)) | int %}{% set hours = ((time % 1440) / 60) | int %}{% set days = (time / 1440) | int %}{%- if time < 60 -%}Less than a minute{%- else -%}{%- if days > 0 -%}{{ days }}d.{%- endif -%}{%- if hours > 0 -%}{%- if days > 0 -%}{{ ' ' }}{%- endif -%}{{ hours }}h.{%- endif -%}{%- if minutes > 0 -%}{%- if days > 0 or hours > 0 -%}{{ ' ' }}{%- endif -%}{{ minutes }}min.{%- endif -%}{%- endif -%}"
+        friendly_name: "Landroid bladetime"
+        icon_template: "mdi:map-clock"
+        unit_of_measurement: 'min'
 
       landroid_speed:
-        friendly_name: "Landroid Average Speed"
+        friendly_name: "Landroid average speed"
         unit_of_measurement: 'km/h'
         icon_template: "mdi:gauge"
         value_template: "{{ (((states('sensor.landroid_totaldist') | int) * 0.06) / (states('sensor.landroid_totaltime') | int)) | round(2) }}"
       landroid_speed_last:
-        friendly_name: "Landroid Last Speed"
+        friendly_name: "Landroid last speed"
         unit_of_measurement: 'km/h'
         icon_template: "mdi:gauge"
         value_template: "{{ (((states('input_number.landroid_dist_last') | int) * 0.06) / (states('input_number.landroid_time_last') | int)) | round(2) }}"
@@ -180,32 +227,44 @@
         #  {% endif %}
         
       landroid_speed_today:
-        friendly_name: "Landroid Average Speed Today"
+        friendly_name: "Landroid average speed today"
         unit_of_measurement: 'km/h'
         icon_template: "mdi:gauge"
         value_template: "{{ (((states('sensor.landroid_dist_today') | int) * 0.06) / (states('sensor.landroid_time_today') | int)) | round(2) }}"
       landroid_speed_yesterday:
-        friendly_name: "Landroid Average Speed Yesterday"
+        friendly_name: "Landroid average speed yesterday"
         unit_of_measurement: 'km/h'
         icon_template: "mdi:gauge"
         value_template: "{{ (((states('sensor.landroid_dist_yesterday') | int) * 0.06) / (states('sensor.landroid_time_yesterday') | int)) | round(2) }}"
       landroid_raindelay_s:
-        friendly_name: "Landroid RainDelay (s.)"
+        friendly_name: "Landroid raindelay"
         icon_template: "mdi:weather-rainy"
-        unit_of_measurement: 'Sec.'
+        unit_of_measurement: 'Sec'
         value_template: "{{ (states('sensor.landroid_raindelay') | int) * 60 }}"
 # Statistics ##########
       landroid_totaltime:
+        friendly_name: "Landroid total worktime"
+        icon_template: "mdi:bus-clock"
+        unit_of_measurement: 'min'
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["st"]["wt"] }}'
       landroid_totaldist:
+        friendly_name: "Landroid total distance"
+        icon_template: "mdi:map-marker-distance"
+        unit_of_measurement: 'm'
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["st"]["d"] }}'
       landroid_bladetime:
+        friendly_name: "Landroid total bladetime"
+        icon_template: "mdi:map-clock"
+        unit_of_measurement: 'min'
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["st"]["b"] }}'
 
 # Battery ##########
       landroid_batchargecycles:
+        friendly_name: "Landroid battery charge cycles"
+        icon_template: "mdi:power-plug"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["bt"]["nr"] }}'
       landroid_batcharging:
+        friendly_name: "Landroid battery charging"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["bt"]["c"] }}'
         # >-
         #   {% if states('states.sensor.worx_sensors.attributes["dat"]["bt"]["c"]')|float == 0 -%}Batterie
@@ -240,11 +299,20 @@
             {%- endif %}
           {%- endif %}
       landroid_batvoltage:
+        friendly_name: "Landroid battery voltage"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["bt"]["v"] }}'
+        unit_of_measurement: "V"
+        icon_template: "mdi:battery-charging-100"
       landroid_battemp:
+        friendly_name: "Landroid battery temperature"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["bt"]["t"] }}'
+        unit_of_measurement: "°C"
+        device_class: "temperature"
       landroid_batlevel:
+        friendly_name: "Landroid battery level"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["bt"]["p"] }}'
+        unit_of_measurement: "%"
+        device_class: "battery"
         icon_template: >-
           {% if is_state("sensor.landroid_batcharging","1") -%}
             {%- if states('sensor.landroid_batlevel')|float > 99 -%}mdi:battery-charging-100
@@ -275,77 +343,142 @@
           {%- endif %}
 # Angles ##########
       landroid_pitch:
+        friendly_name: "Landroid pitch"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["dmp"][0] }}'
+        icon_template: "mdi:seat-flat-angled"
+        unit_of_measurement: "°"
       landroid_roll:
+        friendly_name: "Landroid roll"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["dmp"][1] }}'
+        icon_template: "mdi:axis-x-rotate-clockwise"
+        unit_of_measurement: "°"
       landroid_yaw:
+        friendly_name: "Landroid yaw"
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["dmp"][2] }}'
+        icon_template: "mdi:axis-z-rotate-clockwise"
+        unit_of_measurement: "°"
 # Options ##########
       landroid_acs:
         value_template: '{{ states.sensor.worx_sensors.attributes["dat"]["modules"]["US"]["stat"] }}'
 
 # Schedule ##########
       landroid_sched1_starthour:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule monday start hour"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][1][0][0] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][1][0][1] }}"
       landroid_sched1_startminute:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule monday start minute"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][1][0][3] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][1][0][4] }}"
       landroid_sched1_durationminutes:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule monday duration"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][1][1] }}"
       landroid_sched1_cutedge:
+        icon_template: "mdi:scissors-cutting"
+        friendly_name: "Schedule monday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][1][2] }}"
 
       landroid_sched2_starthour:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule tuesday start hour"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][2][0][0] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][2][0][1] }}"
       landroid_sched2_startminute:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule tuesday start minute"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][2][0][3] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][2][0][4] }}"
       landroid_sched2_durationminutes:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule tuesday duration"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][2][1] }}"
       landroid_sched2_cutedge:
+        icon_template: "mdi:scissors-cutting"
+        friendly_name: "Schedule tuesday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][2][2] }}"
 
       landroid_sched3_starthour:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule wednesday start hour"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][3][0][0] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][3][0][1] }}"
       landroid_sched3_startminute:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule wednesday start minute"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][3][0][3] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][3][0][4] }}"
       landroid_sched3_durationminutes:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule wednesday duration"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][3][1] }}"
       landroid_sched3_cutedge:
+        icon_template: "mdi:scissors-cutting"
+        friendly_name: "Schedule wednesday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][3][2] }}"
 
       landroid_sched4_starthour:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule thursday start hour"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][4][0][0] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][4][0][1] }}"
       landroid_sched4_startminute:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule thursday start minute"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][4][0][3] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][4][0][4] }}"
       landroid_sched4_durationminutes:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule thursday duration"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][4][1] }}"
       landroid_sched4_cutedge:
+        icon_template: "mdi:scissors-cutting"
+        friendly_name: "Schedule thursday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][4][2] }}"
         
       landroid_sched5_starthour:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule friday start hour"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][5][0][0] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][5][0][1] }}"
       landroid_sched5_startminute:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule friday start minute"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][5][0][3] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][5][0][4] }}"
       landroid_sched5_durationminutes:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule friday duration"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][5][1] }}"
       landroid_sched5_cutedge:
+        icon_template: "mdi:scissors-cutting"
+        friendly_name: "Schedule friday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][5][2] }}"
         
       landroid_sched6_starthour:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule saturday start hour"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][6][0][0] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][6][0][1] }}"
       landroid_sched6_startminute:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule saturday start minute"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][6][0][3] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][6][0][4] }}"
       landroid_sched6_durationminutes:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule saturday duration"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][6][1] }}"
       landroid_sched6_cutedge:
+        icon_template: "mdi:scissors-cutting"
+        friendly_name: "Schedule saturday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][6][2] }}"
         
       landroid_sched0_starthour:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule sunday start hour"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][0][0][0] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][0][0][1] }}"
       landroid_sched0_startminute:
+        icon_template: "mdi:calendar-clock"
+        friendly_name: "Schedule sunday start minute"
         value_template: "{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][0][0][3] }}{{ state_attr('sensor.worx_sensors', 'cfg') ['sc']['d'][0][0][4] }}"
       landroid_sched0_durationminutes:
+        icon_template: "mdi:clock-end"
+        friendly_name: "Schedule sunday duration"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][0][1] }}"
       landroid_sched0_cutedge:
+        icon_template: "mdi:scissors-cutting"
+        friendly_name: "Schedule sunday cut edge"
         value_template: "{{ states.sensor.worx_sensors.attributes['cfg']['sc']['d'][0][2] }}"
 
 # Templates ##########
@@ -353,17 +486,31 @@
     sensors:
 # Actual schedule
       landroid_1_actual:
+        friendly_name: "Actual schedule monday"
+        icon_template: "mdi:calendar-clock"
         value_template: "{{ states('sensor.landroid_sched1_starthour') }}:{{ states('sensor.landroid_sched1_startminute') }}, {{ states('sensor.landroid_sched1_durationminutes') }} Minutes{% if states('sensor.landroid_sched1_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
       landroid_2_actual:
+        friendly_name: "Actual schedule tuesday"
+        icon_template: "mdi:calendar-clock"
         value_template: "{{ states('sensor.landroid_sched2_starthour') }}:{{ states('sensor.landroid_sched2_startminute') }}, {{ states('sensor.landroid_sched2_durationminutes') }} Minutes{% if states('sensor.landroid_sched2_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
       landroid_3_actual:
+        friendly_name: "Actual schedule wednesday"
+        icon_template: "mdi:calendar-clock"
         value_template: "{{ states('sensor.landroid_sched3_starthour') }}:{{ states('sensor.landroid_sched3_startminute') }}, {{ states('sensor.landroid_sched3_durationminutes') }} Minutes{% if states('sensor.landroid_sched3_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
       landroid_4_actual:
+        friendly_name: "Actual schedule thursday"
+        icon_template: "mdi:calendar-clock"
         value_template: "{{ states('sensor.landroid_sched4_starthour') }}:{{ states('sensor.landroid_sched4_startminute') }}, {{ states('sensor.landroid_sched4_durationminutes') }} Minutes{% if states('sensor.landroid_sched4_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
       landroid_5_actual:
+        friendly_name: "Actual schedule friday"
+        icon_template: "mdi:calendar-clock"
         value_template: "{{ states('sensor.landroid_sched5_starthour') }}:{{ states('sensor.landroid_sched5_startminute') }}, {{ states('sensor.landroid_sched5_durationminutes') }} Minutes{% if states('sensor.landroid_sched5_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
       landroid_6_actual:
+        friendly_name: "Actual schedule saturday"
+        icon_template: "mdi:calendar-clock"
         value_template: "{{ states('sensor.landroid_sched6_starthour') }}:{{ states('sensor.landroid_sched6_startminute') }}, {{ states('sensor.landroid_sched6_durationminutes') }} Minutes{% if states('sensor.landroid_sched6_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
       landroid_0_actual:
+        friendly_name: "Actual schedule sunday"
+        icon_template: "mdi:calendar-clock"
         value_template: "{{ states('sensor.landroid_sched0_starthour') }}:{{ states('sensor.landroid_sched0_startminute') }}, {{ states('sensor.landroid_sched0_durationminutes') }} Minutes{% if states('sensor.landroid_sched0_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
 
