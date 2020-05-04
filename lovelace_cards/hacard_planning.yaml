@@ -18,7 +18,7 @@ card:
       type: conditional
     - entities:
         - input_boolean.landroid_sched1
-        - script.landroid_set_sched
+        - script.landroid_set_sched1
       show_header_toggle: false
       type: entities
     - card:
