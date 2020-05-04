@@ -1,0 +1,15 @@
+card:
+  entities:
+    - entity: timer.landroid_raindelay
+      icon: 'mdi:timer'
+      name: Délai en Cours
+    - entity: sensor.landroid_raindelay
+    - entity: input_number.landroid_raindelay
+    - entity: script.landroid_set_raindelay
+  show_header_toggle: false
+  title: Délai aprés Pluie
+  type: entities
+conditions:
+  - entity: input_boolean.landroid_raindelay_settings
+    state: 'on'
+type: conditional
