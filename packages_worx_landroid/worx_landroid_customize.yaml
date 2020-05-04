@@ -528,25 +528,25 @@
     script.landroid_set_timeext:
       friendly_name: "Landroid - Time extension"
       icon: "mdi:content-save-settings"
-    script.landroid_set_scheduler1:
+    script.landroid_set_sched1:
       friendly_name: "Landroid - Sauvegarde Lundi"
       icon: "mdi:content-save-settings"
-    script.landroid_set_scheduler2:
+    script.landroid_set_sched2:
       friendly_name: "Landroid - Sauvegarde Mardi"
       icon: "mdi:content-save-settings"
-    script.landroid_set_scheduler3:
+    script.landroid_set_sched3:
       friendly_name: "Landroid - Sauvegarde Mercredi"
       icon: "mdi:content-save-settings"
-    script.landroid_set_scheduler4:
+    script.landroid_set_sched4:
       friendly_name: "Landroid - Sauvegarde Jeudi"
       icon: "mdi:content-save-settings"
-    script.landroid_set_scheduler5:
+    script.landroid_set_sched5:
       friendly_name: "Landroid - Sauvegarde Vendredi"
       icon: "mdi:content-save-settings"
-    script.landroid_set_scheduler6:
+    script.landroid_set_sched6:
       friendly_name: "Landroid - Sauvegarde Samedi"
       icon: "mdi:content-save-settings"
-    script.landroid_set_scheduler0:
+    script.landroid_set_sched0:
       friendly_name: "Landroid - Sauvegarde Dimanche"
       icon: "mdi:content-save-settings"
       
