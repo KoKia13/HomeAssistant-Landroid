@@ -1,0 +1,28 @@
+card:
+  entities:
+    - entity: automation.landroid_firmware_changed
+    - entity: automation.landroid_ip_address_notify
+    - entity: automation.landroid_last_distance
+    - entity: automation.landroid_last_wortime
+    - entity: automation.landroid_maj_minuit
+    - entity: automation.landroid_notification_error
+    - entity: automation.landroid_notification_error_trapped
+    - entity: automation.landroid_notification_home
+    - entity: automation.landroid_notification_no_error_slack
+    - entity: automation.landroid_notification_no_update
+    - entity: automation.landroid_notification_status
+    - entity: automation.landroid_notification_status_slack_30mn
+    - entity: automation.landroid_oled_screensaver
+    - entity: automation.landroid_raindelay_started
+    - entity: automation.landroid_reset_values_1mn_while_mowing
+    - entity: automation.landroid_start_fred_home
+    - entity: automation.landroid_start_webhook
+    - entity: automation.landroid_sync_values
+    - entity: automation.landroid_worx_site
+  show_header_toggle: true
+  title: Landroid Automations
+  type: entities
+conditions:
+  - entity: input_boolean.landroid_automations_toggle
+    state: 'on'
+type: conditional
