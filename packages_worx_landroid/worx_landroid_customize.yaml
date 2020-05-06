@@ -134,6 +134,7 @@
       icon: "mdi:bus-clock"
     sensor.landroid_bladetime_human:
       friendly_name: "BladeTime"
+      icon: 'mdi:fan'
     sensor.landroid_speed:
       friendly_name: "Average Speed"
       unit_of_measurement: 'km/h'
@@ -165,8 +166,8 @@
       icon: "mdi:map-marker-distance"
       unit_of_measurement: "m."
     sensor.landroid_bladetime:
-      friendly_name: BladeTime"
-      icon: "mdi:paper-cut-vertical"
+      friendly_name: "BladeTime"
+      icon: 'mdi:fan'
       unit_of_measurement: "Min." 
 
 # Batterie ##########
@@ -202,23 +203,23 @@
       
 # Scheduler ##########
     sensor.landroid_sched_today_start:
-      icon_template: "mdi:calendar-clock"
-      friendly_name: "Schedule today start time"
+      icon_template: "mdi:clock-start"
+      friendly_name: "Schedule Today Start Time"
     sensor.landroid_sched_today_starthour:
       icon_template: "mdi:calendar-clock"
-      friendly_name: "Schedule today start hour"
+      friendly_name: "Schedule Today Start Hour"
     sensor.landroid_sched_today_startminute:
       icon_template: "mdi:calendar-clock"
-      friendly_name: "Schedule today start minute"
+      friendly_name: "Schedule Today Start Minute"
     sensor.landroid_sched_today_durationminutes:
       icon_template: "mdi:clock-end"
-      friendly_name: "Schedule today duration"
+      friendly_name: "Schedule Today Duration"
     sensor.landroid_sched_today_cutedge:
       icon_template: "mdi:scissors-cutting"
-      friendly_name: "Schedule today cut edge"
+      friendly_name: "Schedule Today Cut Edge"
     sensor.landroid_sched_today_end:
       icon_template: "mdi:clock-end"
-      friendly_name: "Schedule today end time"
+      friendly_name: "Schedule Today End Time"
 
     sensor.landroid_sched1:
       friendly_name: "Schedule Monday"
@@ -397,156 +398,226 @@
       
 # Switch ##########
     switch.landroid_mowing:
-      friendly_name: "En Tonte"
+      friendly_name: "Landroid - Mowing"
       assumed_state: true
 
-# Input Number ####
+######################################################
+# INPUT NUMBERS ######################################
+######################################################
     input_number.landroid_updated:
+      friendly_name: "Updated"
     #   templates:
     #     icon_template: >
     #       if (state === '1') return 'mdi:heart-pulse';
     #       return 'mdi:heart-broken';
       icon: "mdi:pulse"      
     input_number.landroid_raindelay:
-      friendly_name: "Landroid Délai aprés Pluie"
+      friendly_name: "Rain Delay"
       icon: "mdi:weather-lightning-rainy"
+      unit_of_measurement: "Min."
+    input_number.landroid_raindelay_bak:
+      friendly_name: "Rain Delay Backup"
+      icon: "mdi:weather-lightning-rainy"
+      unit_of_measurement: "Min."
     input_number.landroid_timeext:
-      friendly_name: "Landroid Time extension"
-      icon: "mdi:clock-out"
-
-    input_number.landroid_1_duration:
-      friendly_name: "Landroid Durée (Min.)"
-      unit_of_measurement: "Min."
-    input_number.landroid_2_duration:
-      friendly_name: "Landroid Durée (Min.)"
-      unit_of_measurement: "Min."
-    input_number.landroid_3_duration:
-      friendly_name: "Landroid Durée (Min.)"
-      unit_of_measurement: "Min."
-    input_number.landroid_4_duration:
-      friendly_name: "Landroid Durée (Min.)"
-      unit_of_measurement: "Min."
-    input_number.landroid_5_duration:
-      friendly_name: "Landroid Durée (Min.)"
-      unit_of_measurement: "Min."
-    input_number.landroid_6_duration:
-      friendly_name: "Landroid Durée (Min.)"
-      unit_of_measurement: "Min."
-    input_number.landroid_0_duration:
-      friendly_name: "Landroid Durée (Min.)"
-      unit_of_measurement: "Min."
-
-# Input DateTime ##
-    input_datetime.landroid_1_time:
-      friendly_name: "Landroid Début"
-    input_datetime.landroid_2_time:
-      friendly_name: "Landroid Début"
-    input_datetime.landroid_3_time:
-      friendly_name: "Landroid Début"
-    input_datetime.landroid_4_time:
-      friendly_name: "Landroid Début"
-    input_datetime.landroid_5_time:
-      friendly_name: "Landroid Début"
-    input_datetime.landroid_6_time:
-      friendly_name: "Landroid Début"
-    input_datetime.landroid_0_time:
-      friendly_name: "Landroid Début"
-
-# Input Boolean ###
-    input_boolean.landroid_raindelay_settings:
-      friendly_name: "Délai aprés Pluie"
-    input_boolean.landroid_timext_settings:
       friendly_name: "Time extension"
+      icon: "mdi:clock-out"
+      unit_of_measurement: "%"
+    input_number.landroid_timeext_bak:
+      friendly_name: "Time extension Backup"
+      icon: "mdi:clock-out"
+      unit_of_measurement: "%"
+
+    input_number.landroid_sched1_duration:
+      friendly_name: "Duration Mon. (Min.)"
+      unit_of_measurement: "Min."
+      icon: "mdi:clock-end"
+    input_number.landroid_sched2_duration:
+      friendly_name: "Duration Tue. (Min.)"
+      unit_of_measurement: "Min."
+      icon: "mdi:clock-end"
+    input_number.landroid_sched3_duration:
+      friendly_name: "Duration Wed. (Min.)"
+      unit_of_measurement: "Min."
+      icon: "mdi:clock-end"
+    input_number.landroid_sched4_duration:
+      friendly_name: "Duration Thu. (Min.)"
+      unit_of_measurement: "Min."
+      icon: "mdi:clock-end"
+    input_number.landroid_sched5_duration:
+      friendly_name: "Duration Fri. (Min.)"
+      unit_of_measurement: "Min."
+      icon: "mdi:clock-end"
+    input_number.landroid_sched6_duration:
+      friendly_name: "Duration Sat. (Min.)"
+      unit_of_measurement: "Min."
+      icon: "mdi:clock-end"
+    input_number.landroid_sched0_duration:
+      friendly_name: "Duration Sun. (Min.)"
+      unit_of_measurement: "Min."
+      icon: "mdi:clock-end"
+
+####################################################
+# INPUT DateTime ###################################
+####################################################
+    input_datetime.landroid_sched1_time:
+      friendly_name: "Time to Start Mon."
+      icon: "mdi:clock-start"
+    input_datetime.landroid_sched2_time:
+      friendly_name: "Time to Start Tue."
+      icon: "mdi:clock-start"
+    input_datetime.landroid_sched3_time:
+      friendly_name: "Time to Start Wed."
+      icon: "mdi:clock-start"
+    input_datetime.landroid_sched4_time:
+      friendly_name: "Time to Start Thu."
+      icon: "mdi:clock-start"
+    input_datetime.landroid_sched5_time:
+      friendly_name: "Time to Start Fri."
+      icon: "mdi:clock-start"
+    input_datetime.landroid_sched6_time:
+      friendly_name: "Time to Start Sat."
+      icon: "mdi:clock-start"
+    input_datetime.landroid_sched0_time:
+      friendly_name: "Time to Start Sun."
+      icon: "mdi:clock-start"
+
+######################################################
+# INPUT Boolean ######################################
+######################################################
+    input_boolean.landroid_raindelay_settings:
+      friendly_name: "Rain Delay Settings"
+      icon: "mdi:file-hidden"
+    input_boolean.landroid_timext_settings:
+      friendly_name: "Time Extension Settings"
+      icon: "mdi:file-hidden"
     input_boolean.landroid_sched_settings:
-      friendly_name: "Planning de Tonte"
+      friendly_name: "Scheduler Settings"
+      icon: "mdi:file-hidden"
     input_boolean.landroid_info_toggle:
-      friendly_name: "Information"
-    input_boolean.landroid_automations_toggle:
-      friendly_name: "Automations"
-
+      friendly_name: "Informations Toggle"
+      icon: "mdi:file-hidden"
     input_boolean.landroid_status_enabled:
-      friendly_name: "Landroid On/Off"
-      templates:
-        icon_color: >
-          if (state === 'on') return 'green';
-          return 'red';
-
-    input_boolean.landroid_0:
-      friendly_name: "Sunday"
-    input_boolean.landroid_0_cuttoedge:
-      friendly_name: "Cut to edge"
-    input_boolean.landroid_1:
-      friendly_name: "Monday"
-    input_boolean.landroid_1_cuttoedge:
-      friendly_name: "Cut to edge"
-    input_boolean.landroid_2:
-      friendly_name: "Tuesday"
-    input_boolean.landroid_2_cuttoedge:
-      friendly_name: "Cut to edge"
-    input_boolean.landroid_3:
-      friendly_name: "Wednesday"
-    input_boolean.landroid_3_cuttoedge:
-      friendly_name: "Cut to edge"
-    input_boolean.landroid_4:
-      friendly_name: "Tuesday"
-    input_boolean.landroid_4_cuttoedge:
-      friendly_name: "Cut to edge"
-    input_boolean.landroid_5:
-      friendly_name: "Friday"
-    input_boolean.landroid_5_cuttoedge:
-      friendly_name: "Cut to edge"
-    input_boolean.landroid_6:
-      friendly_name: "Saturday"
-    input_boolean.landroid_6_cuttoedge:
-      friendly_name: "Cut to edge"
-
-# Automation ######
-    automation.landroid_sync_values:
-      friendly_name: "Sync Values"
-      icon: "mdi:sync"
-# Scripts #########
-    script.landroid_start:
-      friendly_name: "Démarrer Tonte"
-      icon: "mdi:play"
-    script.landroid_stop:
-      friendly_name: "Arrêter Tonte"
-      icon: "mdi:home"
-    script.landroid_enableordisable:
       friendly_name: "On/Off"
       icon: "mdi:power-standby"
       templates:
         icon_color: >
           if (state === 'on') return 'green';
           return 'red';
+    input_boolean.landroid_automations_toggle:
+      friendly_name: "Automations Toggle"
+      icon: "mdi:file-hidden"
+
+# Scheduler #######
+    input_boolean.landroid_sched1:
+      friendly_name: "Monday"
+      icon: "mdi:calendar-today"
+    input_boolean.landroid_sched1_cuttoedge:
+      friendly_name: "Cut to edge Monday"
+      icon: "mdi:scissors-cutting"
+    input_boolean.landroid_sched2:
+      friendly_name: "Tuesday"
+      icon: "mdi:calendar-minus"
+    input_boolean.landroid_sched2_cuttoedge:
+      friendly_name: "Cut to edge Tuesday"
+      icon: "mdi:scissors-cutting"
+    input_boolean.landroid_sched3:
+      friendly_name: "Wednesday"
+      icon: "mdi:calendar-range"
+    input_boolean.landroid_sched3_cuttoedge:
+      friendly_name: "Cut to edge Wednesday"
+      icon: "mdi:scissors-cutting"
+    input_boolean.landroid_sched4:
+      friendly_name: "Thursday"
+      icon: "mdi:calendar-multiselect"
+    input_boolean.landroid_sched4_cuttoedge:
+      friendly_name: "Cut to edge Thursday"
+      icon: "mdi:scissors-cutting"
+    input_boolean.landroid_sched5:
+      friendly_name: "Friday"
+      icon: "mdi:calendar-heart"
+    input_boolean.landroid_sched5_cuttoedge:
+      friendly_name: "Cut to edge Friday"
+      icon: "mdi:scissors-cutting"
+    input_boolean.landroid_sched6:
+      friendly_name: "Saturday"
+      icon: "mdi:calendar-check"
+    input_boolean.landroid_sched6_cuttoedge:
+      friendly_name: "Cut to edge Friday"
+      icon: "mdi:scissors-cutting"
+    input_boolean.landroid_sched0:
+      friendly_name: "Sunday"
+      icon: "mdi:calendar"
+    input_boolean.landroid_sched0_cuttoedge:
+      friendly_name: "Cut to edge Sunday"
+      icon: "mdi:scissors-cutting"
+
+######################################################
+# INPUT Text #########################################
+######################################################
+    input_text.landroid_last_desc:
+      friendly_name: "Last Desc Changed"
+######################################################
+# AUTOMATIONS ########################################
+######################################################
+    automation.landroid_sync_values:
+      friendly_name: "Landroid - Sync Values"
+      icon: "mdi:sync"
+
+######################################################
+# SCRIPT #############################################
+######################################################
+    script.landroid_start:
+      friendly_name: "Landroid - Start Mowing"
+      icon: "mdi:play"
+    script.landroid_stop:
+      friendly_name: "Landroid - Stop Mowing"
+      icon: "mdi:home"
+    script.landroid_enable:
+      friendly_name: "Landroid - Enable"
+      icon: "mdi:power-standby"
+    script.landroid_disable:
+      friendly_name: "Landroid - Disable"
+      icon: "mdi:power-standby"
+    script.landroid_enableordisable:
+      friendly_name: "Landroid - On/Off"
+      icon: "mdi:power-standby"
+      templates:
+        icon_color: >
+          if (state === 'on') return 'green';
+          return 'red';
+
+
+
     script.landroid_persistent_notification_clean:
-      friendly_name: "Clean Landroid Persistent Notification"
+      friendly_name: "Landroid - Clean Landroid Persistent Notification"
       icon: "mdi:squeegee"
 
     script.landroid_set_raindelay:
-      friendly_name: "Landroid - Sauvegarde"
+      friendly_name: "Landroid - Rain Delay - Save"
       icon: "mdi:content-save-settings"
     script.landroid_set_timeext:
-      friendly_name: "Landroid - Time extension"
+      friendly_name: "Landroid - Time Extension - Save"
       icon: "mdi:content-save-settings"
     script.landroid_set_sched1:
-      friendly_name: "Landroid - Sauvegarde Lundi"
+      friendly_name: "Landroid - Monday - Save"
       icon: "mdi:content-save-settings"
     script.landroid_set_sched2:
-      friendly_name: "Landroid - Sauvegarde Mardi"
+      friendly_name: "Landroid - Tuesday - Save"
       icon: "mdi:content-save-settings"
     script.landroid_set_sched3:
-      friendly_name: "Landroid - Sauvegarde Mercredi"
+      friendly_name: "Landroid - Wedneday - Save"
       icon: "mdi:content-save-settings"
     script.landroid_set_sched4:
-      friendly_name: "Landroid - Sauvegarde Jeudi"
+      friendly_name: "Landroid - Thursday - Save"
       icon: "mdi:content-save-settings"
     script.landroid_set_sched5:
-      friendly_name: "Landroid - Sauvegarde Vendredi"
+      friendly_name: "Landroid - Friday - Save"
       icon: "mdi:content-save-settings"
     script.landroid_set_sched6:
-      friendly_name: "Landroid - Sauvegarde Samedi"
+      friendly_name: "Landroid - Saturday - Save"
       icon: "mdi:content-save-settings"
     script.landroid_set_sched0:
-      friendly_name: "Landroid - Sauvegarde Dimanche"
+      friendly_name: "Landroid - Sunday - Save"
       icon: "mdi:content-save-settings"
       
