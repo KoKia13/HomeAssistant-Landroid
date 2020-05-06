@@ -86,11 +86,12 @@
           {% elif states('sensor.landroid_statuscode') == "32" -%}Cutting Edge
           {% elif states('sensor.landroid_statuscode') == "33" -%}Searching Area
           {% elif states('sensor.landroid_statuscode') == "34" -%}Pause
-          {% elif states('sensor.landroid_statuscode') == "Unavaiable" -%}Unavaiable
+          {% elif states('sensor.landroid_statuscode') == "unavailable" -%}Unavailable
           {%- else -%}Unknown Status Code
           {%- endif %}
         icon_template: >-
-          {% if is_state('sensor.landroid_statuscode','1') -%}mdi:home
+          {% if is_state('sensor.landroid_statuscode','1') -%}mdi:bell-sleep
+          {%- elif is_state('sensor.landroid_statuscode', '1') -%}mdi:home
           {%- elif is_state('sensor.landroid_statuscode', '7') -%}mdi:fan
           {%- elif is_state('sensor.landroid_statuscode', '8') -%}mdi:alert
           {%- elif is_state('sensor.landroid_statuscode', '9') -%}mdi:alert
@@ -119,11 +120,14 @@
           {% elif states('sensor.landroid_errorcode') == "15" -%}Timeout Finding Home
           {% elif states('sensor.landroid_errorcode') == "16" -%}Locked
           {% elif states('sensor.landroid_errorcode') == "17" -%}Battery Temperature Error
-          {% elif states('sensor.landroid_errorcode') == "Unavaiable" -%}Unavaiable
+          {% elif states('sensor.landroid_errorcode') == "unavailable" -%}Unavailable
           {%- else -%}Unknown Error Code
           {%- endif %}
         icon_template: >-
           {% if is_state('sensor.landroid_errorcode','0') -%}mdi:bug-check
+          {%- elif is_state('sensor.landroid_errorcode', '1') -%}mdi:rodent
+          {%- elif is_state('sensor.landroid_errorcode', '2') -%}mdi:weight-lifter
+          {%- elif is_state('sensor.landroid_errorcode', '4') -%}mdi:border-outside
           {%- elif is_state('sensor.landroid_errorcode', '5') -%}mdi:weather-rainy
           {%- elif is_state('sensor.landroid_errorcode', '8') -%}mdi:weather-hurricane
           {%- elif is_state('sensor.landroid_errorcode', '9') -%}mdi:buddhism
@@ -396,4 +400,6 @@
         value_template: "{{ states('sensor.landroid_sched6_starthour') }}:{{ states('sensor.landroid_sched6_startminute') }}, {{ states('sensor.landroid_sched6_durationminutes') }} Minutes{% if states('sensor.landroid_sched6_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
       landroid_sched0_actual:
         value_template: "{{ states('sensor.landroid_sched0_starthour') }}:{{ states('sensor.landroid_sched0_startminute') }}, {{ states('sensor.landroid_sched0_durationminutes') }} Minutes{% if states('sensor.landroid_sched0_cutedge') == '1' -%}, Cut to Edge{%- endif %}"
+
+
 
