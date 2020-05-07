@@ -90,7 +90,7 @@
           {%- else -%}Unknown Status Code
           {%- endif %}
         icon_template: >-
-          {% if is_state('sensor.landroid_statuscode','1') -%}mdi:bell-sleep
+          {% if is_state('sensor.landroid_statuscode','0') -%}mdi:bell-sleep
           {%- elif is_state('sensor.landroid_statuscode', '1') -%}mdi:home
           {%- elif is_state('sensor.landroid_statuscode', '7') -%}mdi:fan
           {%- elif is_state('sensor.landroid_statuscode', '8') -%}mdi:alert
