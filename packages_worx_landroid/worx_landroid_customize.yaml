@@ -406,10 +406,9 @@
 ######################################################
     input_number.landroid_updated:
       friendly_name: "Updated"
-    #   templates:
-    #     icon_template: >
-    #       if (state === '1') return 'mdi:heart-pulse';
-    #       return 'mdi:heart-broken';
+      templates:
+        icon: if (state === '0.0') return 'mdi:heart-broken';
+          return 'mdi:pulse';
       icon: "mdi:pulse"      
     input_number.landroid_raindelay:
       friendly_name: "Rain Delay"
